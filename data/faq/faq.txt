@@ -1,0 +1,149 @@
+Q1: Siparişim ne zaman teslim edilecek?
+A1: Siparişinizin teslimat süresi, seçtiğiniz kargo yöntemine ve teslimat adresinize bağlıdır. Siparişlerim sayfasından kargo takibi yapabilirsiniz.
+
+Q2: Kargo ücretleri ne kadar?
+A2: Standart teslimat ücreti belirli bir tutarın altındaki siparişler için geçerlidir. Amazon Prime üyeleri ise bedava ve hızlı kargodan yararlanır.
+
+Q3: Siparişimi nasıl iade edebilirim?
+A3: Siparişlerim sayfasından iade etmek istediğiniz ürünü seçip "Ürün İade Et" butonuna tıklayarak iade sürecini başlatabilirsiniz.
+
+Q4: İade süresi kaç gündür?
+A4: Amazon.com.tr üzerinden satın alınan çoğu ürün, teslim tarihinden itibaren 30 gün içinde iade edilebilir.
+
+Q5: İade kargo ücretini kim öder?
+A5: Kusurlu, hasarlı veya yanlış gönderilen ürünlerin iade kargo ücreti Amazon tarafından karşılanır. Keyfi iadelerde satıcı politikaları geçerli olabilir.
+
+Q6: Para iadem ne zaman yapılır?
+A6: İade edilen ürün depomuza ulaşıp onaylandıktan sonra para iadeniz 3-5 iş günü içinde bankanıza aktarılır.
+
+Q7: Hangi ödeme yöntemlerini kabul ediyorsunuz?
+A7: Kredi kartı, banka kartı ve Amazon hediye kartları ile ödeme yapabilirsiniz. Kapıda ödeme seçeneğimiz bulunmamaktadır.
+
+Q8: Siparişimi nasıl iptal edebilirim?
+A8: Kargo hazırlık aşamasına geçmemiş siparişlerinizi "Siparişlerim" sayfasından iptal edebilirsiniz. Kargoya verilmişse iade süreci işletilmelidir.
+
+Q9: Faturama nasıl ulaşabilirim?
+A9: Siparişlerim bölümüne giderek ilgili siparişin yanındaki "Fatura" seçeneğine tıklayıp elektronik faturanızı indirebilirsiniz.
+
+Q10: Amazon Prime nedir?
+A10: Amazon Prime, bedava hızlı kargo, Prime Video, Prime Gaming ve üyelere özel indirimler sunan bir abonelik servisidir.
+
+Q11: Prime üyeliğimi nasıl iptal edebilirim?
+A11: Hesabım > Prime Üyeliği sekmesinden üyeliğinizi istediğiniz zaman iptal edebilir veya yenilemeyi kapatabilirsiniz.
+
+Q12: Ürünüm hasarlı geldi, ne yapmalıyım?
+A12: Hasarlı ürünler için 30 gün içinde Siparişlerim sayfasından değişim veya iade talebi oluşturabilirsiniz.
+
+Q13: Satıcıyla nasıl iletişime geçebilirim?
+A13: Pazaryeri satıcılarıyla iletişime geçmek için Siparişlerim sayfasında satıcının adına tıklayıp "Soru Sor" butonunu kullanabilirsiniz.
+
+Q14: Garanti süreci nasıl işler?
+A14: Elektronik ürünler standart üretici garantisi altındadır. Garanti belgeniz faturanızla birlikte geçerlidir. Yetkili servislere başvurabilirsiniz.
+
+Q15: KVKK aydınlatma metnine nereden ulaşabilirim?
+A15: Kişisel verilerinizin işlenmesiyle ilgili detaylara sitemizin en altındaki "Gizlilik Bildirimi" ve "KVKK" linklerinden ulaşabilirsiniz.
+
+Q16: Kredi kartı bilgilerim güvende mi?
+A16: Evet, Amazon global güvenlik standartlarına uygun SSL şifreleme teknolojileri kullanarak kart bilgilerinizi korur.
+
+Q17: Adresimi nasıl güncelleyebilirim?
+A17: Hesabım > Adreslerim bölümünden yeni adres ekleyebilir veya mevcut adreslerinizi silebilirsiniz.
+
+Q18: Hediye paketi yapabiliyor musunuz?
+A18: Sepet aşamasında "Bu bir hediye" seçeneğini işaretleyerek ürünlerinizin hediye paketi yapılmasını ve hediye notu eklenmesini sağlayabilirsiniz.
+
+Q19: Şifremi unuttum, ne yapmalıyım?
+A19: Giriş ekranındaki "Şifremi unuttum" bağlantısına tıklayarak e-posta veya telefonunuza şifre sıfırlama bağlantısı gönderebilirsiniz.
+
+Q20: Hesabım neden kilitlendi?
+A20: Güvenlik ihlali veya şüpheli hareketler tespit edildiğinde hesaplar geçici olarak kilitlenebilir. Müşteri hizmetleriyle iletişime geçmelisiniz.
+
+Q21: Yurt dışından gelen (Amazon Global) ürünlerin gümrük vergisi nasıl ödeniyor?
+A21: Sepet aşamasında tahmini gümrük vergisi (İthalat Ücreti Depozitosu) peşin olarak tahsil edilir. Ekstra bir ücret ödemezsiniz.
+
+Q22: Gümrük vergisi tahminden az tutarsa ne olur?
+A22: İthalat ücreti depozitosu fiili gümrük vergisinden fazla çıkarsa, aradaki fark otomatik olarak kartınıza iade edilir.
+
+Q23: Müşteri hizmetlerine nasıl ulaşabilirim?
+A23: Yardım > Bize Ulaşın sayfası üzerinden telefonla aranma talep edebilir, canlı sohbete bağlanabilir veya e-posta gönderebilirsiniz.
+
+Q24: Aynı gün teslimat var mı?
+A24: Belirli bölgelerde ve seçili ürünlerde Amazon Prime üyeleri için aynı gün veya ertesi gün teslimat seçeneği mevcuttur.
+
+Q25: Ürünün fiyatı düştü, aradaki farkı iade alabilir miyim?
+A25: Amazon'un fiyat düşüşlerine karşı fark iadesi politikası bulunmamaktadır. Dilerseniz iade edip yeni fiyattan tekrar alabilirsiniz.
+
+Q26: Teslimat adresini sipariş verdikten sonra değiştirebilir miyim?
+A26: Sipariş kargo hazırlık aşamasına geçmeden önce adres değişikliği yapabilirsiniz. Sonrasında değişiklik yapılamaz.
+
+Q27: Pazar yeri satıcılarının kargo süresi nedir?
+A27: Pazar yeri satıcılarının gönderim süreleri kendi politikalarına bağlıdır ve ürün detay sayfasında tahmini teslimat olarak belirtilir.
+
+Q28: İade etiketi nasıl yazdırılır?
+A28: İade talebiniz onaylandığında size bir iade etiketi ve kargo kodu sunulur. Bunu yazdırıp paketin üzerine yapıştırabilirsiniz.
+
+Q29: Barkod / Etiket yazdıracak yazıcım yok, ne yapmalıyım?
+A29: Bazı kargo firmaları için etiket yazdırmanıza gerek yoktur, size verilen iade kodunu kargo görevlisine söylemeniz yeterlidir.
+
+Q30: Aldığım ürün orijinal mi?
+A30: Amazon.com.tr'de satılan tüm ürünler orijinaldir. Sahte ürün satışı platform kurallarımıza aykırıdır ve anında tespit edilip engellenir.
+
+Q31: Stokta olmayan ürünleri ne zaman alabilirim?
+A31: Stokta olmayan ürünler için "Stoklara girince haber ver" butonunu kullanabilirsiniz.
+
+Q32: Sepetimdeki ürünleri ne kadar süre tutabilirim?
+A32: Sepetinizdeki ürünler silinmez ancak fiyatları ve stok durumları zamanla değişebilir.
+
+Q33: Kupon kodunu nasıl kullanabilirim?
+A33: Ödeme aşamasında yer alan "Hediye Kartı veya Promosyon Kodu Ekle" alanına kodunuzu girerek indirimi uygulayabilirsiniz.
+
+Q34: Birden fazla hediye kartını aynı anda kullanabilir miyim?
+A34: Evet, hesabınıza tanımlanmış tüm hediye kartı bakiyesini tek bir siparişte birleştirip kullanabilirsiniz.
+
+Q35: Teslimat sırasında evde yoksam ne olur?
+A35: Kargo görevlisi paketinizi güvenli bir yere veya komşunuza bırakabilir, ya da ertesi gün tekrar teslimat deneyebilir.
+
+Q36: Amazon Lojistik (FBA) nedir?
+A36: Satıcıların ürünlerini Amazon depolarında tuttuğu ve kargolama/müşteri hizmetleri işlemlerini Amazon'un üstlendiği bir sistemdir.
+
+Q37: Kişisel verilerim üçüncü şahıslarla paylaşılıyor mu?
+A37: Amazon, kişisel verilerinizi yalnızca hizmet kalitesini artırmak ve siparişlerinizi teslim etmek amacıyla KVKK kurallarına uygun olarak paylaşır.
+
+Q38: Çerez politikası ayarlarımı nasıl değiştirebilirim?
+A38: Hesabım bölümündeki Gizlilik ayarlarından çerez tercihlerinizi yönetebilirsiniz.
+
+Q39: İade işleminde kargo kutusunu atmışsam ne yapmalıyım?
+A39: Orijinal kutusu olmayan ürünler sağlam bir şekilde farklı bir kutu ile paketlenerek iade edilebilir.
+
+Q40: Kullanılmış ürün iade edilebilir mi?
+A40: Elektronik ve kişisel bakım ürünleri hariç, tekrar satılabilir durumdaki ürünler iade edilebilir. Detaylar için iade politikasını inceleyin.
+
+Q41: Para iadem yapıldı ama hesabımda göremiyorum?
+A41: Bankanızın süreçlerine bağlı olarak iadenin kredi kartı ekstrenize yansıması 1-2 fatura dönemi sürebilir.
+
+Q42: Üyelik olmadan alışveriş yapabilir miyim?
+A42: Hayır, sipariş verebilmek ve kargo takibi yapabilmek için ücretsiz bir Amazon hesabı oluşturmanız gerekmektedir.
+
+Q43: Aynı anda iki farklı adrese sipariş verebilir miyim?
+A43: Tek bir siparişte yalnızca bir teslimat adresi seçebilirsiniz. Farklı adresler için ayrı siparişler oluşturmalısınız.
+
+Q44: Vergi mükellefiyim, kurumsal fatura kesilebilir mi?
+A44: Adreslerim bölümünden kurumsal fatura bilgilerinizi girerek siparişlerinizde e-fatura/kurumsal fatura alabilirsiniz.
+
+Q45: Taksit seçenekleri nelerdir?
+A45: Anlaşmalı kredi kartlarına yasal düzenlemeler çerçevesinde vade farksız veya vade farklı 3-6 ay taksit imkanı sunulmaktadır.
+
+Q46: Cep telefonu alışverişlerinde taksit var mı?
+A46: Türkiye'deki yasal düzenlemeler gereği 12.000 TL üzerindeki cep telefonlarına taksit yapılamamaktadır.
+
+Q47: Canlı destek çalışma saatleri nelerdir?
+A47: Amazon Müşteri Hizmetleri, haftanın 7 günü 24 saat boyunca kesintisiz olarak hizmet vermektedir.
+
+Q48: Beğendiğim ürünleri nasıl kaydedebilirim?
+A48: Ürün detay sayfasındaki "Listeye Ekle" (Wishlist) butonunu kullanarak dilediğiniz kadar alışveriş listesi oluşturabilirsiniz.
+
+Q49: Kargo takip numaram çalışmıyor, neden?
+A49: Kargo firmalarının sistem güncellemeleri birkaç saat sürebilir. Genellikle akşam saatlerinde takip sistemi aktif hale gelir.
+
+Q50: Hatalı bir ürün resmi gördüm, nereye bildirebilirim?
+A50: Ürün detay sayfasının alt kısmındaki "Ürün bilgisiyle ilgili geri bildirimde bulunun" linkini kullanarak hata bildirebilirsiniz.

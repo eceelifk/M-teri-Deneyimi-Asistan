@@ -1,0 +1,18 @@
+AMAZON TÜRKİYE TAKSİT VE ÖDEME SEÇENEKLERİ KILAVUZU
+
+Ödeme Yöntemleri:
+Amazon.com.tr'de Visa, MasterCard, American Express logolu kredi kartları ve banka kartları (debit) geçerlidir. 
+Kapıda ödeme, havale/EFT, BKM Express veya kripto para ile ödeme seçenekleri bulunmamaktadır.
+
+Taksit İmkanları:
+Türkiye Cumhuriyet Merkez Bankası (TCMB) ve BDDK yasal mevzuatları çerçevesinde kredi kartlarına taksit imkanı sunulmaktadır:
+- Vade Farksız Taksit: Belirli bankaların kredi kartlarına 3 veya 6 aya kadar vade farksız (peşin fiyatına) taksit yapılabilir.
+- Yasal Sınırlamalar: Elektronik eşya, bilgisayar, tablet gibi ürünlerde en fazla 6 taksit; beyaz eşya ve mobilyalarda en fazla 9 taksit uygulanabilir.
+- Cep Telefonu Taksitleri: Fiyatı yasal olarak belirlenen sınırın (örn: 12.000 TL) altında olan cep telefonlarına en fazla 12 taksit; üstünde olanlara ise en fazla 3 taksit yapılabilir.
+- Taksit Yapılamayan Ürünler: Gıda, kozmetik, ofis malzemeleri, hediye kartları, yurt dışından gelen (Amazon Global) ürünlerde taksit uygulaması yapılamaz. Banka kartlarına taksit yapılamaz.
+
+Güvenlik ve 3D Secure:
+Tüm kredi kartı ödemeleri 256-bit SSL sertifikaları ile şifrelenir. Amazon şüpheli bir işlem tespit ettiğinde işlemi durdurur ve onayınız için bankanıza 3D Secure (SMS onayı) talebi gönderir. Her alışverişte 3D Secure ekranı çıkmayabilir, bu tamamen bankanızın risk analizine bağlıdır.
+
+Fatura İşlemleri:
+Kurumsal Müşteriler (Vergi mükellefleri), sipariş sırasında kurumsal adreslerini ve vergi numaralarını girerek e-Fatura/kurumsal fatura talep edebilirler. Faturalar ürün teslim edildikten sonra en geç 3 gün içinde sisteme yüklenir ve "Siparişlerim" altından PDF olarak indirilebilir.

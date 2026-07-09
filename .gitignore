@@ -1,0 +1,38 @@
+# Python ortam dosyaları
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.env
+.venv
+venv/
+ENV/
+
+# Veritabanı ve Vector Store kalıntıları
+database/rag.db
+database/*.db
+database/*.sqlite3
+
+# IDE ve OS dosyaları
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,16 @@
+AMAZON LOJİSTİK (FBA) VE SATICI KILAVUZU
+
+Amazon Lojistik (FBA) Nedir?
+Fulfillment by Amazon (FBA), pazaryeri satıcılarının ürünlerini Amazon depolarına gönderdiği, depolama, paketleme, kargolama ve müşteri hizmetleri gibi tüm süreçlerin Amazon tarafından yönetildiği sistemdir.
+
+FBA Avantajları:
+1. Satıcıların ürünleri anında "Prime" etiketi kazanır ve bedava/hızlı kargo avantajından yararlanır.
+2. Müşteri iadeleri ve kargo sorunları tamamen Amazon Müşteri Hizmetleri tarafından çözülür.
+3. Buy Box (Satın Alma Kutusu) kazanma ihtimalini büyük ölçüde artırır.
+
+Satıcıların Yükümlülükleri:
+- Amazon depolarına gönderilecek ürünlerin barkodlanması ve paketlenmesi satıcının sorumluluğundadır.
+- FBA dışı (FBM - satıcının kendi gönderdiği) ürünlerde müşteri mesajlarına en geç 24 saat içinde yanıt verilmesi zorunludur. Aksi takdirde satıcı puanı düşer.
+
+Komisyon ve Kesintiler:
+Amazon, satılan her ürün kategorisine göre farklı oranlarda yönlendirme ücreti (komisyon) keser. FBA kullanan satıcılardan ayrıca ürünün hacmine ve ağırlığına göre depolama ve kargolama ücreti tahsil edilir. Uzun süre (365 günden fazla) depoda satılmadan bekleyen ürünlerden ekstra "uzun süreli depolama ücreti" alınır.

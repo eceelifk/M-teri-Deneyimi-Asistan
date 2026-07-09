@@ -1,0 +1,37 @@
+AMAZON.COM.TR GİZLİLİK BİLDİRİMİ VE KVKK (KİŞİSEL VERİLERİN KORUNMASI KANUNU) POLİTİKASI
+
+Veri Sorumlusu:
+Kişisel verileriniz, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca veri sorumlusu sıfatıyla Amazon Turkey Perakende Hizmetleri Limited Şirketi (“Amazon Türkiye”) tarafından işlenmektedir.
+
+Hangi Kişisel Verileri Topluyoruz?
+Sizden, Amazon Hizmetlerini sunduğumuz ve sürekli olarak iyileştirdiğimiz için kişisel verilerinizi toplamaktayız:
+- Bize Sağladığınız Bilgiler: Siparişler, kargo adresleri, ödeme bilgileri (kredi kartı), hesap profil bilgileri ve müşteri hizmetleri ile yapılan görüşmeler.
+- Otomatik Olarak Toplanan Bilgiler: Çerezler (cookies) aracılığıyla toplanan IP adresi, tarayıcı türü, alışveriş geçmişi ve ürün arama verileri.
+- Diğer Kaynaklardan Gelen Bilgiler: Kargo şirketlerinden gelen güncellenmiş teslimat adresleri.
+
+Kişisel Verilerinizi Hangi Amaçlarla İşliyoruz?
+Kişisel verileriniz aşağıdaki amaçlarla işlenir:
+1. Ürün ve hizmetlerin satın alınması ve teslimatı.
+2. Ödemelerin işlenmesi ve dolandırıcılık önleme.
+3. Müşteri iletişimlerinin sağlanması (e-posta, telefon, canlı sohbet).
+4. Size özel ürün ve hizmet önerileri sunulması (kişiselleştirme).
+5. Yasal yükümlülüklerin yerine getirilmesi (fatura kesimi, tüketici hakları mevzuatı).
+
+Kişisel Verileri Paylaşıyor muyuz?
+Amazon, kişisel verilerinizi satmaz. Verileriniz yalnızca aşağıdaki durumlarda paylaşılır:
+- Kargo ve Teslimat Şirketleri: Siparişlerinizi teslim etmek için adres ve iletişim bilgileriniz kargo şirketleriyle (ör: Kolay Gelsin, MNG Kargo, DHL) paylaşılır.
+- Üçüncü Taraf Satıcılar: Pazaryeri (Marketplace) üzerinden bir satıcıdan ürün aldığınızda, işlemin tamamlanması için sipariş bilgileriniz satıcıyla paylaşılır.
+- Hukuki Yükümlülükler: Mahkeme kararları veya yetkili kamu kurumlarının yasal talepleri doğrultusunda bilgi paylaşımı yapılır.
+
+Veri Güvenliği:
+Amazon, kişisel verilerinizin yetkisiz erişime, kaybolmaya veya değiştirilmeye karşı korunması için gelişmiş SSL (Secure Sockets Layer) şifreleme ve diğer endüstri standardı güvenlik önlemlerini kullanır. Kredi kartı numaralarınız tamamen şifrelenir ve veri tabanlarımızda açık halde tutulmaz.
+
+Haklarınız Nelerdir? (KVKK Madde 11)
+Kişisel verilerinize ilişkin olarak aşağıdaki haklara sahipsiniz:
+- Verilerinizin işlenip işlenmediğini öğrenme,
+- İşlenmişse buna ilişkin bilgi talep etme,
+- İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,
+- Eksik veya yanlış işlenmişse düzeltilmesini isteme,
+- KVKK şartları çerçevesinde silinmesini veya yok edilmesini talep etme.
+
+Bu haklarınızı kullanmak için hesabınızın "Gizlilik Ayarları" bölümünü ziyaret edebilir veya Amazon Müşteri Hizmetleri ile doğrudan iletişime geçebilirsiniz.
