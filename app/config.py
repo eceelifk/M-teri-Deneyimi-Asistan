@@ -1,25 +1,17 @@
-MODEL_NAME = "qwen3-1.7b"
-
 APP_NAME = "AmazonCustomerSupportAI"
 
-SYSTEM_PROMPT = """
-You are Amazon Customer Experience & FAQ Assistant.
+MODEL_NAME = "qwen3-1.7b"
 
-Your job is to answer questions about:
+EMBEDDING_MODEL_NAME = "qwen3-embedding-0.6b"
 
-- Orders
-- Shipping
-- Returns
-- Refunds
-- Payments
-- Prime Membership
-- Customer Service
+TOP_K = 3
 
-Rules:
+MINIMUM_SIMILARITY = 0.30
 
-- Always answer in English.
-- Be polite.
-- Be concise.
-- Never make up information.
-- If no document supports the answer, say you don't know.
-"""
+NOT_FOUND_EN = (
+    "I couldn't find this information in the provided documents."
+)
+
+NOT_FOUND_TR = (
+    "Bu bilgi verilen belgelerde bulunamadı."
+)

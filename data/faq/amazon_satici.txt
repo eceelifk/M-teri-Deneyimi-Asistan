@@ -1,0 +1,21 @@
+Amazon Türkiye'de Satıcı Olmak ve Satış Yapmak
+
+Amazon Türkiye'de satıcı olmak ve satış yapmaya başlamak için izleyebileceğiniz temel adımlar ve kaynaklar aşağıdadır:
+
+1. Kayıt ve Başlangıç
+- Satıcı Hesabı Oluşturma: Amazon Türkiye'de satış yapmaya başlamak için öncelikle Amazon Seller Central Türkiye sayfası üzerinden bir satıcı hesabı oluşturmanız gerekmektedir.
+- Yardım ve Rehberler: Başvuru süreci, hesap yönetimi ve satışa hazırlık gibi konularda detaylı bilgi almak için Seller Central içindeki "Yardım" bölümlerini veya "Başlangıç Kılavuzu"nu inceleyebilirsiniz.
+
+2. Satış Modelleri ve Lojistik
+- Amazon Lojistik (FBA): Ürünlerinizin depolama, paketleme, kargo ve müşteri hizmetleri süreçlerini Amazon'un yönetmesini sağlayan bir hizmettir. Prime üyelerine hızlı teslimat avantajı sunar.
+- Kendiniz Gönderin: Siparişleri ve kargo süreçlerini kendi anlaşmalı olduğunuz kargo firmaları ile yönetmeyi de tercih edebilirsiniz.
+- Amazon Kolay Gönderi: Yurtiçi satıcılar için sunulan, anlaşmalı taşıyıcı firmaların paketleri deponuzdan alıp alıcıya teslim ettiği bir teslimat yardım hizmetidir.
+
+3. Satış Süreci ve Ücretler
+- Satış Komisyonları: Amazon, satılan her ürün için kategoriye göre değişen oranlarda (Genelde %6 ile %15 arası) satış komisyonu alır.
+- Ücretlendirme: Satıcı hesabı türüne göre (örneğin Profesyonel Satıcı hesabı) aylık abonelik ücretleri veya satış başına kesintiler uygulanabilir.
+- Ürün Listeleme: Seller Central üzerinden ürünlerinizi listeleyebilir, envanterinizi yönetebilir ve satış raporlarınızı takip edebilirsiniz.
+
+4. Destek ve İletişim
+- Bize Ulaşın: Kayıt öncesi sorularınız veya hesap süreçleriyle ilgili bilgi almak için Amazon'un Bize Ulaşın formlarını veya destek sayfalarını kullanabilirsiniz.
+- Satıcı Forumları: Diğer satıcılarla etkileşim kurmak ve deneyimlerden faydalanmak için Amazon Satıcı Forumları'nı ziyaret edebilirsiniz.

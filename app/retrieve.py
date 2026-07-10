@@ -3,7 +3,7 @@ import json
 from app.database import get_all_chunks
 from app.embedding import create_embedding, cosine_similarity
 
-def retrieve(question, top_k=3):
+def retrieve(question, top_k=3, minimum_similarity=0.1):
     """
     Kullanıcının sorusunu vektöre çevirir ve veritabanındaki 
     belge vektörleriyle karşılaştırıp (Cosine Similarity) en benzerlerini getirir.
@@ -30,8 +30,8 @@ def retrieve(question, top_k=3):
         if doc_type == "review":
             score -= 0.05 
 
-        # Belli bir benzerlik eşiğinin (örn: %10) üzerindeki belgeleri alalım
-        if score > 0.1:
+        # Belli bir benzerlik eşiğinin (örn: minimum_similarity) üzerindeki belgeleri alalım
+        if score > minimum_similarity:
             scored.append({
                 "score": float(score),
                 "source": source,

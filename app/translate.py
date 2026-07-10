@@ -1,21 +1,24 @@
-from app.llm import ask_llm
+import os
+import warnings
 
+# Tüm uyarıları kapatıyoruz
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+os.environ["TRANSFORMERS_VERBOSITY"] = "error"
+warnings.filterwarnings("ignore")
 
-def clean_model_output(text):
-    if "</think>" in text:
-        text = text.split("</think>", 1)[1]
-    return text.strip().strip('"')
+from transformers import pipeline
 
+en_to_tr_translator = pipeline("translation", model="Helsinki-NLP/opus-tatoeba-en-tr")
+tr_to_en_translator = pipeline("translation", model="Helsinki-NLP/opus-mt-tr-en")
 
 def en_to_tr(text):
-    prompt = f"""
-Translate the following English text into Turkish.
-Do not explain.
-Do not show reasoning.
-Do not use <think>.
-Only return the Turkish translation.
+    if not text:
+        return ""
+    result = en_to_tr_translator(text)
+    return result[0]['translation_text']
 
-TEXT:
-{text}
-"""
-    return clean_model_output(ask_llm(prompt))
+def tr_to_en(text):
+    if not text:
+        return ""
+    result = tr_to_en_translator(text)
+    return result[0]['translation_text']

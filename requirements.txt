@@ -10,6 +10,18 @@ sentence-transformers
 
 faiss-cpu
 
+foundry-local-sdk==1.2.3
+
+langchain
+
+langchain-community
+
+langchain-text-splitters
+
+sentence-transformers
+
+faiss-cpu
+
 pypdf
 
 tqdm
@@ -17,3 +29,6 @@ tqdm
 numpy
 
 pandas
+sentencepiece
+transformers==4.40.1
+streamlit
