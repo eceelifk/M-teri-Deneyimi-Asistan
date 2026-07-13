@@ -147,3 +147,152 @@ A49: Kargo firmalarının sistem güncellemeleri birkaç saat sürebilir. Genell
 
 Q50: Hatalı bir ürün resmi gördüm, nereye bildirebilirim?
 A50: Ürün detay sayfasının alt kısmındaki "Ürün bilgisiyle ilgili geri bildirimde bulunun" linkini kullanarak hata bildirebilirsiniz.
+Q51: Yurt dışından verdiğim siparişlerin gümrük vergisi nasıl hesaplanır?
+A51: İthalat ücreti depozitosu, sipariş sırasında sepetinizde tahmini olarak hesaplanır ve peşin alınır. Ekstra gümrük masrafı çıkarsa Amazon karşılar, eksik çıkarsa fark size iade edilir.
+
+Q52: Prime Video üyeliği Prime kargo üyeliğinden ayrı mı ücretlendirilir?
+A52: Hayır, Amazon Prime üyeliği; Prime Hızlı Kargo, Prime Video ve Prime Gaming hizmetlerinin tümünü tek bir aylık veya yıllık ücret karşılığında sunar.
+
+Q53: Amazon Renewed (Yenilenmiş) ürünler ne anlama geliyor?
+A53: Yenilenmiş ürünler, kullanılmış ancak profesyoneller tarafından test edilerek yeni gibi çalışır duruma getirilmiş ürünlerdir ve 1 yıl Amazon Garantisi altındadır.
+
+Q54: Siparişimi hediye paketi yaptırabilir miyim?
+A54: Evet, çoğu ürün için ödeme adımında 'Hediye Seçenekleri Ekle' butonuna tıklayarak hediye paketi ve özel mesaj ekleyebilirsiniz.
+
+Q55: Kurumsal faturamı nasıl indirebilirim?
+A55: Siparişlerim sayfasına gidip ilgili siparişin yanındaki 'Fatura' seçeneğine tıklayarak KDV dahil faturanızı PDF olarak indirebilirsiniz.
+
+Q56: Hesabımı nasıl silebilir veya kapatabilirim?
+A56: Hesap Ayarları > Hesabımı Kapat adımlarını izleyerek veya Müşteri Hizmetleri ile iletişime geçerek kalıcı hesap silme talebi oluşturabilirsiniz.
+
+Q57: Amazon Mobil Uygulamasına özel indirimler var mı?
+A57: Evet, ilk defa uygulama üzerinden alışveriş yapacak müşterilere veya dönemsel uygulama kampanyalarına özel indirim kodları tanımlanmaktadır.
+
+Q58: Hediye kartımın bakiyesini nasıl öğrenebilirim?
+A58: Hesabım > Hediye Kartları sekmesine girerek mevcut Amazon hediye kartı bakiyenizi ve işlem geçmişinizi görüntüleyebilirsiniz.
+
+Q59: Amazon Prime Gaming avantajlarından nasıl yararlanırım?
+A59: Amazon Prime hesabınızı Twitch hesabınızla bağlayarak her ay ücretsiz oyunlara ve oyun içi ganimetlere erişebilirsiniz.
+
+Q60: Teslim edilen paketim hasarlıysa ne yapmalıyım?
+A60: Kargo görevlisi yanınızdayken tutanak tutturabilir veya 'Siparişlerim' bölümünden Müşteri Hizmetleri ile iletişime geçerek değişim/iade talep edebilirsiniz.
+
+Q61: Amazon Lojistik (Amazon Logistics) ile gönderilen kargomu canlı takip edebilir miyim?
+A61: Evet, Amazon Lojistik ile gönderilen kargoların harita üzerinden canlı takibi (belirli bölgelerde) Siparişlerim > Kargo Takibi kısmından yapılabilir.
+
+Q62: İade kodumu kaybettim, nasıl tekrar alabilirim?
+A62: Siparişlerim kısmında iade detaylarına girerek iade kargo etiketini ve kodunu tekrar görüntüleyebilir veya e-posta adresinize gönderebilirsiniz.
+
+Q63: Satıcıyla nasıl iletişime geçerim?
+A63: Ürün sayfasında veya sipariş detaylarında 'Satıcıyla İletişime Geç' butonunu kullanarak doğrudan üçüncü taraf satıcılara mesaj gönderebilirsiniz.
+
+Q64: Promosyon kodumu nerede kullanabilirim?
+A64: Ödeme yöntemini seçtiğiniz sayfada yer alan 'Hediye Kartı veya Promosyon Kodu Girin' kutucuğuna kodunuzu yazarak indirimi uygulayabilirsiniz.
+
+Q65: Siparişim teslim edildi görünüyor ama bana ulaşmadı, ne yapmalıyım?
+A65: Bazen kargo firmaları teslimatı önceden sisteme girebilir. Lütfen komşularınıza veya bina görevlisine sorun. 48 saat içinde ulaşmazsa bize ulaşın.
+
+Q66: Birden fazla adrese tek seferde kargo gönderebilir miyim?
+A66: Evet, ödeme sayfasında 'Birden Fazla Adrese Gönder' seçeneğini kullanarak sepetinizdeki ürünleri farklı adreslere paylaştırabilirsiniz.
+
+Q67: Satın aldığım ürünün fiyatı düştü, aradaki farkı iade alabilir miyim?
+A67: Amazon.com.tr genel olarak fiyat garantisi sunmaz ve fiyat düştüğünde aradaki farkı iade etmez. Dilerseniz ürünü iade edip yeni fiyattan alabilirsiniz.
+
+Q68: Amazon Prime deneme süresini iptal etmezsem ne olur?
+A68: 30 günlük ücretsiz deneme süresi sonunda iptal etmezseniz, kayıtlı kartınızdan standart aylık Prime üyelik ücreti tahsil edilmeye başlar.
+
+Q69: Alışverişte kredi kartına taksit yapıyor musunuz?
+A69: Evet, yasal düzenlemeler çerçevesinde elektronik ve gıda dışı birçok kategoride anlaşmalı kredi kartlarına vade farksız taksit seçenekleri sunulmaktadır.
+
+Q70: Yanlış ürünü iade edersem ne olur?
+A70: Amazon depolarına yanlış ürün gönderirseniz, iadeniz reddedilir ve ürün imha edilebilir veya masrafı size ait olmak üzere geri gönderilebilir.
+
+Q71: Amazon deposundan değil, farklı satıcıdan aldığım ürünün iadesi nasıldır?
+A71: Üçüncü taraf satıcılardan alınan ürünlerin iade şartları satıcıya göre değişiklik gösterebilir. Satıcının iade politikası sayfasını incelemeniz önerilir.
+
+Q72: Gülümseten Cuma (Black Friday) indirimleri ne kadar sürer?
+A72: Dönemsel kampanyaların süresi her yıl değişmekle birlikte, Gülümseten Cuma indirimleri genellikle Kasım ayının son haftasını kapsayan uzun bir sürece yayılır.
+
+Q73: Kargo poşetleriniz geri dönüştürülebilir mi?
+A73: Amazon, sürdürülebilirlik ilkeleri gereği karton kutularını %100 geri dönüştürülebilir malzemeden üretir. Kağıt zarflar da tamamen doğa dostudur.
+
+Q74: Kargo adresimi sipariş verdikten sonra değiştirebilir miyim?
+A74: Eğer siparişiniz 'Gönderime Hazırlanıyor' aşamasına geçmediyse, Siparişlerim > Sipariş Detayları bölümünden kargo adresini güncelleyebilirsiniz.
+
+Q75: Çoklu alımlarda kısıtlama var mı?
+A75: Fırsat ürünlerinde veya stoklu belirli teknoloji ürünlerinde, bireysel müşterilerin adil yararlanabilmesi için kişi başı 1-2 adet gibi satın alma sınırları olabilir.
+
+Q76: Şifremi unuttum, hesabıma nasıl girerim?
+A76: Giriş yapma ekranında 'Şifrenizi mi unuttunuz?' bağlantısına tıklayarak e-posta veya telefonunuza gelen kod ile yeni şifre belirleyebilirsiniz.
+
+Q77: Amazon güvencesi (A'dan Z'ye Garanti) neleri kapsar?
+A77: Üçüncü taraf satıcılardan alınan ürünlerin zamanında teslim edilmemesi veya açıklandığı gibi çıkmaması durumunda Amazon müşteriyi %100 güvence altına alır.
+
+Q78: Müşteri hizmetlerine telefonla nasıl ulaşırım?
+A78: Amazon.com.tr doğrudan çağrı merkezi numarası paylaşmaz. 'Bize Ulaşın' sekmesinden 'Beni Ara' seçeneğini kullanırsanız sistemimiz sizi anında arar.
+
+Q79: Amazon deposundan alınan bir ürün yurt dışına gönderilir mi?
+A79: Amazon.com.tr üzerinden verilen siparişlerin teslimat adresleri şu an için sadece Türkiye sınırları içerisindedir. Global gönderim için Amazon.com'u kullanmalısınız.
+
+Q80: Kargo şirketini ben seçebilir miyim?
+A80: Maalesef kargo firması, adresinize, ürünün boyutuna ve depomuzun uygunluğuna göre sistem tarafından otomatik olarak atanmaktadır.
+
+Q81: Prime üyeliği iptalinde para iadesi olur mu?
+A81: Eğer o ay içerisinde Prime avantajlarından (bedava kargo, Prime Video vb.) hiç yararlanmadıysanız, üyeliğinizi iptal ettiğinizde aylık ücret iade edilebilir.
+
+Q82: Yorum yazdığım ürünü satın almış olmam şart mı?
+A82: Satın almadığınız ürünlere de yorum yapabilirsiniz ancak yorumunuzun yanında 'Onaylı Alışveriş' (Verified Purchase) etiketi görünmez.
+
+Q83: İade ettiğim ürünün kutusu açılmışsa iade kabul edilir mi?
+A83: Hijyen ürünleri ve yazılım/oyun CD'leri hariç, ürünün orijinal ambalajına zarar vermeden açıp denediğiniz ürünler 30 gün içinde iade edilebilir.
+
+Q84: Sepetteki ürünlerin fiyatı neden değişir?
+A84: Amazon'da fiyatlar arz ve talebe göre dinamik olarak güncellenir. Sepetinizde bekleyen bir ürünün fiyatı veya stok durumu zamanla değişebilir.
+
+Q85: Hangi banka kartları ile ödeme yapabilirim?
+A85: Mastercard, Visa, Troy ve American Express logolu tüm banka ve kredi kartları ile güvenli bir şekilde alışveriş yapabilirsiniz.
+
+Q86: Sanal kart ile alışveriş yapabilir miyim?
+A86: Evet, internet alışverişlerine açık olan tüm banka sanal kartları ile Amazon üzerinden sipariş oluşturabilirsiniz.
+
+Q87: Aldığım ürünün faturası neden kutudan çıkmadı?
+A87: E-fatura mükellefi olduğumuz için kağıt israfını önlemek amacıyla faturalar e-posta adresinize PDF olarak iletilir ve 'Siparişlerim' sayfasına yüklenir.
+
+Q88: İndirimli ürünler için değişim yapabilir miyim?
+A88: Amazon genellikle değişim yerine iade kabul eder. Ürünü iade edip stok durumuna göre yeniden sipariş vermeniz önerilir.
+
+Q89: İstek Listesi (Wish List) nasıl kullanılır?
+A89: Beğendiğiniz ancak daha sonra almak istediğiniz ürünlerin sayfasındaki 'Listeye Ekle' butonuna basarak kişisel İstek Listeleri oluşturabilirsiniz.
+
+Q90: Amazon Prime Video'da Türkçe dublaj var mı?
+A90: Evet, Amazon Originals içeriklerinin büyük bir çoğunluğunda ve diğer birçok popüler film/dizide Türkçe altyazı ve Türkçe dublaj seçenekleri mevcuttur.
+
+Q91: Hesabımda şüpheli bir işlem gördüm, ne yapmalıyım?
+A91: Derhal şifrenizi değiştirin ve durumu Müşteri Hizmetleri'ne bildirin. Ek güvenlik için İki Adımlı Doğrulama (2FA) özelliğini açmanızı tavsiye ederiz.
+
+Q92: Hediye kartını nakite çevirebilir miyim?
+A92: Hayır, Amazon Hediye Kartları yasal kurallar gereği nakde çevrilemez veya başka bir hesaba transfer edilemez. Sadece alışverişte kullanılabilir.
+
+Q93: Abonelik (Subscribe & Save) ile nasıl indirim kazanırım?
+A93: Düzenli aldığınız ürünler (kahve, deterjan vb.) için otomatik teslimat (Abonelik) oluşturarak %10'a varan ekstra indirimler kazanabilirsiniz.
+
+Q94: Teslimat adresime kilitli dolap (Amazon Locker) seçebilir miyim?
+A94: Türkiye'de şu an için Amazon Locker hizmeti bulunmamakla birlikte, bazı anlaşmalı teslimat noktalarından (Gelm-Al) kargonuzu teslim alabilirsiniz.
+
+Q95: Aynı gün teslimat hangi şehirlerde geçerli?
+A95: Aynı Gün Teslimat seçeneği genellikle İstanbul, Ankara, İzmir, Bursa ve Kocaeli gibi büyükşehirlerin belirli ilçeleri için geçerlidir ve saat 11:00'den önce sipariş verilmelidir.
+
+Q96: Ürün değerlendirmemi veya yorumumu nasıl silebilir/düzenleyebilirim?
+A96: Hesabım > Profiliniz > Topluluk Etkinliği sekmesine giderek daha önce yazdığınız tüm ürün yorumlarını düzenleyebilir veya silebilirsiniz.
+
+Q97: Prime fırsatlarına erken erişim nedir?
+A97: Prime üyeleri, Amazon.com.tr'de düzenlenen 'Fırsat Günü' (Lightning Deals) indirimlerine normal üyelerden 30 dakika daha erken erişme hakkına sahiptir.
+
+Q98: Elektronik ürünlerde teknik servis neresidir?
+A98: Amazon üzerinden satılan elektronik ürünlerin garanti ve teknik servis desteği, ilgili markanın Türkiye'deki yetkili distribütörleri tarafından sağlanır.
+
+Q99: Engelli veya gazi indirimi var mı?
+A99: Amazon Türkiye'de şu an için özel bir meslek veya durum indirimi bulunmamaktadır, ancak tüm müşteriler için genel kampanyalar sürekli güncellenmektedir.
+
+Q100: Amazon uygulaması dili nasıl değiştirilir?
+A100: Mobil uygulamanın sağ alt köşesindeki menü ikonuna basıp Ayarlar > Ülke ve Dil seçeneklerinden uygulamanın dilini ve alışveriş yapılacak ülkeyi değiştirebilirsiniz.

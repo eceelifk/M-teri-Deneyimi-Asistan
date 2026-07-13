@@ -2,10 +2,11 @@ from app.llm import ask_llm
 from app.retrieve import retrieve
 from app.translate import tr_to_en, en_to_tr
 from app.memory import add_to_memory
+from app.config import TOP_K, MINIMUM_SIMILARITY
 
 
-NOT_FOUND_EN = "I couldn't find this information in the provided documents."
-NOT_FOUND_TR = "Bu bilgi verilen belgelerde bulunamadı."
+NOT_FOUND_EN = "No information was found about this."
+NOT_FOUND_TR = "Bunun hakkında bir bilgi bulunamadı."
 
 
 def clean_answer(text: str) -> str:
@@ -68,12 +69,25 @@ def ask(question_tr: str) -> dict:
             "sources": []
         }
 
-    # 1. Retrieval Türkçe soru üzerinden yapılır.
-    docs = retrieve(
-        question=question_tr,
-        top_k=3,
-        minimum_similarity=0.30
-    )
+    try:
+        # 1. Soruyu hemen İngilizceye çeviriyoruz (İngilizce yorumları bulabilmek için)
+        question_en = tr_to_en(question_tr)
+    except Exception as error:
+        print("Translation to English error:", error)
+        question_en = question_tr
+
+    # 2. Hem Türkçe hem İngilizce soruyla vektör araması yapıyoruz
+    # Türkçe soru Türkçe SSS'leri (FAQ), İngilizce soru İngilizce CSV yorumlarını bulacak.
+    docs_tr = retrieve(question=question_tr, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY)
+    docs_en = retrieve(question=question_en, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY)
+
+    # İki dildeki sonuçları birleştir (aynı olanları filtrele)
+    seen = set()
+    docs = []
+    for d in docs_tr + docs_en:
+        if d["chunk"] not in seen:
+            seen.add(d["chunk"])
+            docs.append(d)
 
     if not docs:
         return {
@@ -82,18 +96,15 @@ def ask(question_tr: str) -> dict:
             "sources": []
         }
 
-    # 2. Bulunan Türkçe bağlam hazırlanır.
-    context_tr = build_turkish_context(docs)
+    # 3. Bulunan karışık bağlam (context) hazırlanır.
+    context_mixed = build_turkish_context(docs)
 
     try:
-        # 3. Soru İngilizceye çevrilir.
-        question_en = tr_to_en(question_tr)
-
-        # 4. Sadece bulunan bağlam İngilizceye çevrilir.
-        context_en = tr_to_en(context_tr)
-
+        # 4. Tüm bağlam LLM'in anlaması için İngilizceye çevrilir (Zaten İngilizce olanlar etkilenmez)
+        context_en = tr_to_en(context_mixed)
     except Exception as error:
-        print("Translation to English error:", error)
+        print("Translation context error:", error)
+        context_en = context_mixed
 
         return {
             "answer_en": NOT_FOUND_EN,
@@ -113,16 +124,15 @@ document context.
 STRICT RULES:
 
 1. Answer only in English.
-2. Use only information explicitly present in the context.
-3. Do not use outside knowledge.
-4. Do not invent policies, dates, prices, conditions or procedures.
-5. If the context does not contain enough information, return exactly:
+2. Use only information explicitly present in the DOCUMENT CONTEXT.
+3. Cite the source files you used by appending the source names in parentheses at the end of your sentences (e.g., (mock_orders.txt)). You can find the source names in the [SOURCE X: source_name] tags.
+4. Do not use outside knowledge.
+5. Do not invent policies, dates, prices, conditions or procedures.
+6. CRITICAL: If the DOCUMENT CONTEXT does not contain the answer, you MUST NOT explain what the documents contain or try to be helpful. You MUST reply with ONLY this exact phrase and nothing else:
    "{NOT_FOUND_EN}"
-6. Do not show your reasoning.
-7. Do not use <think> tags.
+7. Do not show your reasoning or use <think> tags.
 8. Keep the answer concise, polite and customer-service friendly.
-9. Do not mention information from an unrelated source.
-10. Do not include a source unless it supports the answer.
+9. If the DOCUMENT CONTEXT contains an ASIN or Image URL for a product, you MUST include a markdown image `![Product Image](Image URL)` and a link `[Buy on Amazon](https://www.amazon.com/dp/ASIN)` at the very end of your answer.
 
 DOCUMENT CONTEXT:
 {context_en}

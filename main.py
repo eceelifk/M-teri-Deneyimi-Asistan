@@ -27,7 +27,13 @@ while True:
     print("\nAsistan:")
     print(result["answer_tr"])
 
+    if result.get("question_en"):
+        print("\n[İngilizce soru]:")
+        print(result["question_en"])
 
+    if result.get("answer_en"):
+        print("\n[İngilizce cevap]:")
+        print(result["answer_en"])
 
     if result["sources"]:
         print("\nKaynaklar:")

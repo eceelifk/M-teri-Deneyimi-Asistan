@@ -19,6 +19,11 @@ print("Loading model...")
 
 model = manager.catalog.get_model(MODEL_NAME)
 
+if model is None:
+    model = manager.catalog.get_model("qwen3-1.7b")
+    if model is None:
+        raise ValueError("Kritik Hata: LLM modeli bulunamadı!")
+
 if not model.is_loaded:
     if not model.is_cached:
         print(

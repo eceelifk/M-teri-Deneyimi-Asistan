@@ -18,6 +18,11 @@ manager = FoundryLocalManager.instance
 
 model = manager.catalog.get_model(EMBEDDING_MODEL_NAME)
 
+if model is None:
+    model = manager.catalog.get_model("qwen3-embedding-0.6b")
+    if model is None:
+        raise ValueError("Kritik Hata: Embedding modeli bulunamadı!")
+
 if not model.is_loaded:
     if not model.is_cached:
         print("Embedding modeli indiriliyor...")

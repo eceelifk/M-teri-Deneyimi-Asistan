@@ -9,8 +9,9 @@ DB_PATH = os.path.join(BASE_DIR, "database", "rag.db")
 def create_database():
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
 
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DB_PATH, timeout=15.0)
     cursor = conn.cursor()
+    cursor.execute("PRAGMA journal_mode=WAL;")
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS documents(
@@ -27,7 +28,7 @@ def create_database():
 
 
 def clear_database():
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DB_PATH, timeout=15.0)
     cursor = conn.cursor()
 
     cursor.execute("DELETE FROM documents")
@@ -37,7 +38,7 @@ def clear_database():
 
 
 def insert_chunk(source, doc_type, chunk, embedding):
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DB_PATH, timeout=15.0)
     cursor = conn.cursor()
 
     cursor.execute(
@@ -58,7 +59,7 @@ def insert_chunk(source, doc_type, chunk, embedding):
 
 
 def get_all_chunks():
-    conn = sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DB_PATH, timeout=15.0)
     cursor = conn.cursor()
 
     cursor.execute("""

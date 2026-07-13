@@ -1,24 +1,24 @@
-import os
-import warnings
-
-# Tüm uyarıları kapatıyoruz
-os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
-os.environ["TRANSFORMERS_VERBOSITY"] = "error"
-warnings.filterwarnings("ignore")
-
-from transformers import pipeline
-
-en_to_tr_translator = pipeline("translation", model="Helsinki-NLP/opus-tatoeba-en-tr")
-tr_to_en_translator = pipeline("translation", model="Helsinki-NLP/opus-mt-tr-en")
+from deep_translator import GoogleTranslator
 
 def en_to_tr(text):
+    """İngilizce metni Türkçeye çevirir (Google Translate API)"""
     if not text:
         return ""
-    result = en_to_tr_translator(text)
-    return result[0]['translation_text']
+    try:
+        # 5000 karakter sınırına karşı önlem
+        text = text[:4999]
+        return GoogleTranslator(source='en', target='tr').translate(text)
+    except Exception as e:
+        print(f"Çeviri hatası (EN->TR): {e}")
+        return text # Çeviremezse orijinali döndür
 
 def tr_to_en(text):
+    """Türkçe metni İngilizceye çevirir (Google Translate API)"""
     if not text:
         return ""
-    result = tr_to_en_translator(text)
-    return result[0]['translation_text']
+    try:
+        text = text[:4999]
+        return GoogleTranslator(source='tr', target='en').translate(text)
+    except Exception as e:
+        print(f"Çeviri hatası (TR->EN): {e}")
+        return text

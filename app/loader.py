@@ -1,5 +1,6 @@
 import os
 import csv
+import json
 import fitz
 
 from app.document import Document
@@ -82,6 +83,55 @@ Review:
     return docs
 
 
+def load_jsonl(path):
+    docs = []
+
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+                
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+
+            review = row.get("sentence", "").strip()
+            title = row.get("product_title", "").strip()
+            
+            if not review or not title:
+                continue
+
+            text = f"Product: {title}\n"
+            
+            asin = row.get("asin")
+            if asin:
+                text += f"ASIN: {asin}\n"
+                
+            image_url = row.get("main_image_url")
+            if image_url:
+                text += f"Image URL: {image_url}\n"
+                
+            helpful = row.get("helpful")
+            if helpful:
+                text += f"Helpful Score: {helpful}\n"
+                
+            text += f"\nReview:\n{review}"
+
+            docs.append(
+                Document(
+                    page_content=text,
+                    metadata={
+                        "source": os.path.basename(path),
+                        "type": "review"
+                    }
+                )
+            )
+
+    return docs
+
+
 def load_documents():
     docs = []
 
@@ -102,5 +152,8 @@ def load_documents():
 
             elif lower_file.endswith(".csv"):
                 docs.extend(load_csv(path))
+
+            elif lower_file.endswith(".jsonl"):
+                docs.extend(load_jsonl(path))
 
     return docs
