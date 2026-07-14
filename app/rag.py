@@ -16,7 +16,22 @@ def clean_answer(text: str) -> str:
     if "</think>" in text:
         text = text.split("</think>", 1)[1]
 
-    return text.strip().strip('"')
+    # Remove repeated lines and 'Answer:' prefixes
+    lines = text.strip().strip('"').split('\n')
+    cleaned_lines = []
+    seen = set()
+    for line in lines:
+        line_clean = line.strip()
+        if line_clean.lower().startswith("answer:"):
+            line_clean = line_clean[7:].strip()
+        if line_clean.lower().startswith("cevap:"):
+            line_clean = line_clean[6:].strip()
+            
+        if line_clean and line_clean not in seen:
+            seen.add(line_clean)
+            cleaned_lines.append(line_clean)
+
+    return "\n".join(cleaned_lines).strip()
 
 
 def is_small_talk(question: str) -> bool:
@@ -39,17 +54,16 @@ def build_turkish_context(docs: list[dict]) -> str:
     context_parts = []
 
     for index, doc in enumerate(docs, start=1):
-        source = doc["source"]
         chunk = doc["chunk"][:1000]
 
         context_parts.append(
-            f"[SOURCE {index}: {source}]\n{chunk}"
+            f"[INFORMATION {index}]\n{chunk}"
         )
 
     return "\n\n".join(context_parts)
 
 
-def ask(question_tr: str) -> dict:
+def ask(question_tr: str, filter_type: str = "all") -> dict:
     question_tr = question_tr.strip()
 
     if is_small_talk(question_tr):
@@ -76,10 +90,9 @@ def ask(question_tr: str) -> dict:
         print("Translation to English error:", error)
         question_en = question_tr
 
-    # 2. Hem Türkçe hem İngilizce soruyla vektör araması yapıyoruz
-    # Türkçe soru Türkçe SSS'leri (FAQ), İngilizce soru İngilizce CSV yorumlarını bulacak.
-    docs_tr = retrieve(question=question_tr, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY)
-    docs_en = retrieve(question=question_en, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY)
+    # 2. Hem Türkçe hem İngilizce soruyla sektörel filtreyi kullanarak arama yapıyoruz
+    docs_tr = retrieve(question=question_tr, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY, filter_type=filter_type)
+    docs_en = retrieve(question=question_en, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY, filter_type=filter_type)
 
     # İki dildeki sonuçları birleştir (aynı olanları filtrele)
     seen = set()
@@ -125,14 +138,13 @@ STRICT RULES:
 
 1. Answer only in English.
 2. Use only information explicitly present in the DOCUMENT CONTEXT.
-3. Cite the source files you used by appending the source names in parentheses at the end of your sentences (e.g., (mock_orders.txt)). You can find the source names in the [SOURCE X: source_name] tags.
-4. Do not use outside knowledge.
-5. Do not invent policies, dates, prices, conditions or procedures.
-6. CRITICAL: If the DOCUMENT CONTEXT does not contain the answer, you MUST NOT explain what the documents contain or try to be helpful. You MUST reply with ONLY this exact phrase and nothing else:
+3. Do not use outside knowledge and do not invent policies, dates, prices, conditions or procedures.
+4. CRITICAL: If the DOCUMENT CONTEXT does not contain the answer, you MUST NOT explain what the documents contain or try to be helpful. You MUST reply with ONLY this exact phrase and nothing else:
    "{NOT_FOUND_EN}"
-7. Do not show your reasoning or use <think> tags.
-8. Keep the answer concise, polite and customer-service friendly.
-9. If the DOCUMENT CONTEXT contains an ASIN or Image URL for a product, you MUST include a markdown image `![Product Image](Image URL)` and a link `[Buy on Amazon](https://www.amazon.com/dp/ASIN)` at the very end of your answer.
+5. Do not show your reasoning or use <think> tags.
+6. Keep the answer concise, polite and customer-service friendly.
+7. Provide ONLY the final answer text. Do not repeat the question, do not repeat yourself, and do not use prefixes like "Answer:".
+8. If the DOCUMENT CONTEXT contains an ASIN or Image URL for a product, you MUST include a markdown image `![Product Image](Image URL)` and a link `[Buy on Amazon](https://www.amazon.com/dp/ASIN)` at the very end of your answer.
 
 DOCUMENT CONTEXT:
 {context_en}

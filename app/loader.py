@@ -144,16 +144,25 @@ def load_documents():
             path = os.path.join(root, file)
             lower_file = file.lower()
 
+            # Determine doc_type based on the path
+            doc_type = "faq" # Default to faq
+            if "review" in path.lower():
+                doc_type = "review"
+
+            new_docs = []
             if lower_file.endswith(".pdf"):
-                docs.extend(load_pdf(path))
-
+                new_docs = load_pdf(path)
             elif lower_file.endswith(".txt"):
-                docs.extend(load_txt(path))
-
+                new_docs = load_txt(path)
             elif lower_file.endswith(".csv"):
-                docs.extend(load_csv(path))
-
+                new_docs = load_csv(path)
             elif lower_file.endswith(".jsonl"):
-                docs.extend(load_jsonl(path))
+                new_docs = load_jsonl(path)
+                
+            # Override metadata type
+            for doc in new_docs:
+                doc.metadata["type"] = doc_type
+                
+            docs.extend(new_docs)
 
     return docs

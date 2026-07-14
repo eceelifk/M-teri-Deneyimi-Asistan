@@ -3,7 +3,7 @@ import json
 from app.database import get_all_chunks
 from app.embedding import create_embedding, cosine_similarity
 
-def retrieve(question, top_k=3, minimum_similarity=0.1):
+def retrieve(question, top_k=3, minimum_similarity=0.1, filter_type="all"):
     """
     Kullanıcının sorusunu vektöre çevirir ve veritabanındaki 
     belge vektörleriyle karşılaştırıp (Cosine Similarity) en benzerlerini getirir.
@@ -22,12 +22,16 @@ def retrieve(question, top_k=3, minimum_similarity=0.1):
             chunk_vector = json.loads(embedding_str)
         except Exception:
             continue
+            
+        # UI üzerinden gelen tipe göre filtrele ("all", "faq", "review")
+        if filter_type != "all" and doc_type != filter_type:
+            continue
 
         # 3. İki vektörün anlamsal benzerlik skorunu hesapla
         score = cosine_similarity(query_vector, chunk_vector)
 
-        # Review türündeki dökümanları (kullanıcı yorumlarını) bir tık daha az öncelikli yapabiliriz
-        if doc_type == "review":
+        # Eğer hem SSS hem yorumlarda arama yapıyorsak (all), yorumları daha az öncelikli yap
+        if filter_type == "all" and doc_type == "review":
             score -= 0.05 
 
         # Belli bir benzerlik eşiğinin (örn: minimum_similarity) üzerindeki belgeleri alalım
