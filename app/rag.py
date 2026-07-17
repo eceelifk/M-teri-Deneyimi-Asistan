@@ -54,7 +54,7 @@ def build_turkish_context(docs: list[dict]) -> str:
     context_parts = []
 
     for index, doc in enumerate(docs, start=1):
-        chunk = doc["chunk"][:1000]
+        chunk = doc["chunk"][:400]
 
         context_parts.append(
             f"[INFORMATION {index}]\n{chunk}"
@@ -83,24 +83,17 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
             "sources": []
         }
 
+    from app.embedding import unload_embedding
+    
     try:
-        # 1. Soruyu hemen İngilizceye çeviriyoruz (İngilizce yorumları bulabilmek için)
-        question_en = tr_to_en(question_tr)
+        # Doğrudan Türkçe soru ile vektör araması yapıyoruz
+        import time
+        docs = retrieve(question=question_tr, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY, filter_type=filter_type)
+        unload_embedding()
+        time.sleep(1.5) # VRAM'in boşaltılmasına zaman tanıyoruz
     except Exception as error:
-        print("Translation to English error:", error)
-        question_en = question_tr
-
-    # 2. Hem Türkçe hem İngilizce soruyla sektörel filtreyi kullanarak arama yapıyoruz
-    docs_tr = retrieve(question=question_tr, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY, filter_type=filter_type)
-    docs_en = retrieve(question=question_en, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY, filter_type=filter_type)
-
-    # İki dildeki sonuçları birleştir (aynı olanları filtrele)
-    seen = set()
-    docs = []
-    for d in docs_tr + docs_en:
-        if d["chunk"] not in seen:
-            seen.add(d["chunk"])
-            docs.append(d)
+        print("Retrieval error:", error)
+        docs = []
 
     if not docs:
         return {
@@ -109,70 +102,41 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
             "sources": []
         }
 
-    # 3. Bulunan karışık bağlam (context) hazırlanır.
-    context_mixed = build_turkish_context(docs)
-
-    try:
-        # 4. Tüm bağlam LLM'in anlaması için İngilizceye çevrilir (Zaten İngilizce olanlar etkilenmez)
-        context_en = tr_to_en(context_mixed)
-    except Exception as error:
-        print("Translation context error:", error)
-        context_en = context_mixed
-
-        return {
-            "answer_en": NOT_FOUND_EN,
-            "answer_tr": (
-                "Soru işlenirken çeviri hatası oluştu. "
-                "Lütfen tekrar deneyin."
-            ),
-            "sources": []
-        }
+    # 3. Bulunan bağlam (context) hazırlanır.
+    context_tr = build_turkish_context(docs)
 
     prompt = f"""
-You are an Amazon Customer Experience and FAQ Assistant.
+Sen Amazon Müşteri Deneyimi ve SSS Asistanısın.
 
-Your task is to answer the user's question using only the supplied
-document context.
+GÖREVİN:
+Kullanıcının sorusunu SADECE aşağıdaki BELGE BAĞLAMI'nda (DOCUMENT CONTEXT) yer alan bilgilere dayanarak cevaplamaktır.
 
-STRICT RULES:
+KURALLAR:
+1. Sadece Türkçe cevap ver.
+2. Kibar, net ve müşteri hizmetleri diline uygun ol.
+3. KESİNLİKLE kendi genel bilgini kullanma, sadece metinde geçen bilgileri kullanarak cevapla.
+4. Eğer sorunun cevabı metinde HİÇ YOKSA, uydurmaya çalışma ve sadece şu cümleyi yaz: "{NOT_FOUND_TR}"
+5. Kısa ve öz cevap ver, gereksiz tekrarlardan kaçın.
 
-1. Answer only in English.
-2. Use only information explicitly present in the DOCUMENT CONTEXT.
-3. Do not use outside knowledge and do not invent policies, dates, prices, conditions or procedures.
-4. CRITICAL: If the DOCUMENT CONTEXT does not contain the answer, you MUST NOT explain what the documents contain or try to be helpful. You MUST reply with ONLY this exact phrase and nothing else:
-   "{NOT_FOUND_EN}"
-5. Do not show your reasoning or use <think> tags.
-6. Keep the answer concise, polite and customer-service friendly.
-7. Provide ONLY the final answer text. Do not repeat the question, do not repeat yourself, and do not use prefixes like "Answer:".
-8. If the DOCUMENT CONTEXT contains an ASIN or Image URL for a product, you MUST include a markdown image `![Product Image](Image URL)` and a link `[Buy on Amazon](https://www.amazon.com/dp/ASIN)` at the very end of your answer.
+BELGE BAĞLAMI:
+{context_tr}
 
-DOCUMENT CONTEXT:
-{context_en}
+MÜŞTERİ SORUSU:
+{question_tr}
 
-USER QUESTION:
-{question_en}
-
-ENGLISH ANSWER:
+CEVAP:
 """
 
     try:
-        # 5. İngilizce cevap üretilir.
-        answer_en = clean_answer(ask_llm(prompt))
+        # 5. Modelden doğrudan Türkçe cevap üretilir.
+        answer_tr = clean_answer(ask_llm(prompt))
 
-        if not answer_en:
-            answer_en = NOT_FOUND_EN
+        if not answer_tr:
+            answer_tr = NOT_FOUND_TR
 
     except Exception as error:
         print("LLM error:", error)
-        answer_en = NOT_FOUND_EN
-
-    try:
-        # 6. İngilizce cevap Türkçeye çevrilir.
-        answer_tr = clean_answer(en_to_tr(answer_en))
-
-    except Exception as error:
-        print("Translation to Turkish error:", error)
-        answer_tr = NOT_FOUND_TR
+        answer_tr = f"LLM Hatası: {error}"
 
     # Aynı kaynakları tekrar etmeden sırasını korur.
     sources = list(
@@ -182,8 +146,8 @@ ENGLISH ANSWER:
     add_to_memory(question_tr, answer_tr)
 
     return {
-        "question_en": question_en,
-        "answer_en": answer_en,
+        "question_en": "",
+        "answer_en": "",
         "answer_tr": answer_tr,
         "sources": sources,
         "retrieved_documents": docs

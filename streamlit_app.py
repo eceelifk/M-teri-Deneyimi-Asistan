@@ -154,17 +154,17 @@ if len(st.session_state.messages) == 0:
     
     if selected_filter_type == "faq":
         examples = [
-            "Prime üyeliğin avantajları nelerdir?",
-            "Aldığım bir ürünü nasıl iade edebilirim?",
-            "Kargo takip işlemi nasıl yapılır?",
-            "Faturamı nereden indirebilirim?"
+            "Yurt dışından gelen Amazon Global siparişlerinde kapıda ekstra gümrük vergisi öder miyim?",
+            "Amazon Prime üyeliğimi nasıl iptal edebilirim ve iptal taahhütlü müdür?",
+            "Amazon standart kargo ücreti ne kadarlık sepet tutarının altında yansıtılır?",
+            "Standart teslimat Türkiye genelinde kaç gün sürer?"
         ]
     else:
         examples = [
-            "Kullanıcılar bu ürünün malzeme kalitesi hakkında ne demiş?",
-            "Bu ürünü alıp pişman olan var mı, yorumlar nasıl?",
-            "Ürünün pili ne kadar dayanıyor?",
-            "Fiyatına değer mi, tavsiye ediliyor mu?"
+            "Müşteriler genel olarak bu ürünün ses veya görüntü kalitesinden memnun mu?",
+            "Kullanıcıların bu üründe en çok şikayet ettiği veya iade ettiği temel sorun nedir?",
+            "Ürünün kullanım ömrü ve malzeme dayanıklılığı hakkında yapılan yorumlar nasıl?",
+            "Kargo hızı ve paketleme konusunda müşteriler ne söylemiş?"
         ]
         
     cols = st.columns(2)

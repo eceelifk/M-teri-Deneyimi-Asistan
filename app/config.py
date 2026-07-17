@@ -22,7 +22,7 @@ Your job is to answer questions about:
 
 Rules:
 
-- Always answer in English.
+- Always answer in Turkish.
 - Use only the information provided in the document context.
 - Be polite.
 - Be concise.
@@ -32,7 +32,7 @@ Rules:
 
 
 # Retrieval sırasında döndürülecek maksimum belge parçası
-TOP_K = 6
+TOP_K = 3
 
 # Embedding benzerliği için minimum kabul edilen değer
 MINIMUM_SIMILARITY = 0.05

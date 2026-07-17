@@ -23,29 +23,29 @@ if model is None:
     if model is None:
         raise ValueError("Kritik Hata: Embedding modeli bulunamadı!")
 
-if not model.is_loaded:
-    if not model.is_cached:
-        print("Embedding modeli indiriliyor...")
-        model.download()
-
-    model.load()
-
 client = model.get_embedding_client()
-
-print("Embedding modeli hazır.")
+if client is None:
+    raise ValueError("Embedding client alınamadı!")
 
 
 def create_embedding(text: str) -> list[float]:
-    """
-    Metni Foundry Local embedding modeli kullanarak
-    sayısal vektöre dönüştürür.
-    """
+    """Metin için embedding (vektör) oluşturur."""
     if not text or not text.strip():
-        raise ValueError("Embedding oluşturulacak metin boş olamaz.")
+        return []
 
-    response = client.generate_embedding(text.strip())
+    # Lazy loading: Sadece çağrıldığında yükle
+    if not model.is_loaded:
+        if not model.is_cached:
+            print("Embedding modeli indiriliyor...")
+            model.download()
+        model.load()
 
-    return response.data[0].embedding
+    try:
+        response = client.generate_embedding(text.strip())
+        return response.data[0].embedding
+    except Exception as e:
+        print(f"Hata: {e}")
+        return []
 
 
 def cosine_similarity(v1: list[float], v2: list[float]) -> float:
@@ -68,3 +68,9 @@ def cosine_similarity(v1: list[float], v2: list[float]) -> float:
         return 0.0
 
     return dot_product / (norm_v1 * norm_v2)
+
+
+def unload_embedding():
+    """Unloads the embedding model from memory."""
+    if model.is_loaded:
+        model.unload()
