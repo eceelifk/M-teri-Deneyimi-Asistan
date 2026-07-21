@@ -1,32 +1,32 @@
-AMAZON.COM.TR İADE POLİTİKASI
+AMAZON.COM.TR RETURN POLICY
 
-İade Süresi:
-Amazon.com.tr tarafından satılan ve gönderilen ürünlerin çoğu, ürünün size teslim edildiği tarihten itibaren 30 gün içinde iade edilebilir. 
-İade edilecek ürünler, teslim alındığı gibi yeni, kullanılmamış, eksiksiz (tüm aksesuarları, etiketleri ve ambalajlarıyla) olmalıdır.
+Return Period:
+Most products sold and shipped by Amazon.com.tr can be returned within 30 days from the date the product was delivered to you. 
+The products to be returned must be new, unused, complete (with all accessories, tags and packaging) as received.
 
-İade Süreci Nasıl İşler?
-1. Siparişlerim sayfasına gidin.
-2. İade etmek istediğiniz siparişi bulun ve "Ürün İade Et" veya "Değiştir" butonuna tıklayın.
-3. İade nedenini seçin (örneğin: Ürün kusurlu, fikrimi değiştirdim, yanlış ürün geldi).
-4. İade onaylandığında size bir iade kargo etiketi verilir. Bu etiketle birlikte ürünü kargo firmasına teslim edin.
+How Does the Return Process Work?
+1. Go to the My Orders page.
+2. Find the order you want to return and click the "Return Item" or "Exchange" button.
+3. Select the return reason (for example: Product is defective, I changed my mind, wrong item arrived).
+4. Once the return is approved, you will receive a return shipping label. Deliver the product to the cargo company with this label.
 
-Kargo Ücreti Kim Tarafından Ödenir?
-- Kusurlu, hasarlı, eksik veya yanlış gönderilen ürünlerde iade kargo ücreti Amazon tarafından karşılanır.
-- Amazon Lojistik (FBA) veya Amazon tarafından satılan ürünlerde standart iadeler genellikle ücretsizdir (anlaşmalı kargo firması kullanıldığında).
-- Üçüncü taraf pazaryeri satıcılarında keyfi iade durumlarında kargo ücreti satıcı politikalarına göre değişebilir.
+Who Pays the Shipping Fee?
+- Return shipping costs for defective, damaged, incomplete or incorrectly shipped products are covered by Amazon.
+- Standard returns are generally free for products sold by Fulfillment by Amazon (FBA) or Amazon (when using a contracted courier company).
+- In cases of arbitrary returns from third-party marketplace sellers, shipping costs may vary depending on seller policies.
 
-İade Edilemeyen Ürünler:
-Aşağıdaki ürün gruplarının iadesi genel olarak kabul edilmez (ürün kusurlu değilse):
-- Cayma hakkı süresi içinde ambalajı açılmış ses ve görüntü kayıtları, yazılım programları (CD, DVD, bilgisayar oyunları).
-- Ambalajı açılmış hijyen ve kişisel bakım ürünleri (diş fırçası, tıraş makinesi, kulak içi kulaklık vb.).
-- Çabuk bozulabilen veya son kullanma tarihi geçme ihtimali olan yiyecek, içecek veya takviye gıdalar.
-- Dijital hediye kartları ve indirilebilir yazılımlar.
-- İsteğinize göre özel olarak üretilen veya kişiselleştirilen ürünler.
+Non-Returnable Products:
+Returns for the following product groups are generally not accepted (unless the product is defective):
+- Audio and video recordings, software programs (CD, DVD, computer games) whose packaging has been opened within the right of withdrawal period.
+- Unpackaged hygiene and personal care products (toothbrush, shaver, earbuds, etc.).
+- Food, beverages or supplements that are perishable or likely to expire.
+- Digital gift cards and downloadable software.
+- Products specially produced or personalized according to your wishes.
 
-Para İadeleri (Geri Ödemeler):
-İade edilen ürün Amazon veya satıcı depolarına ulaşıp durum kontrolü yapıldıktan sonra para iadesi onaylanır.
-- Kredi Kartı/Banka Kartı: İadeniz onaylandıktan sonra tutar 3 ila 5 iş günü içinde bankanıza aktarılır.
-- Hediye Kartı Bakiyesi: Hediye kartıyla yapılan ödemelerde, iade tutarı onaylandıktan hemen sonra (2-3 saat içinde) Amazon hesabınıza hediye bakiyesi olarak geri yüklenir.
+Refunds:
+The refund is approved after the returned product reaches Amazon or the seller's warehouse and the condition is checked.
+- Credit Card/Debit Card: After your return is approved, the amount will be transferred to your bank within 3 to 5 business days.
+- Gift Card Balance: For payments made by gift card, the refund amount will be restored to your Amazon account as a gift balance immediately after approval (within 2-3 hours).
 
-Pazar Yeri (Üçüncü Taraf) Satıcı İadeleri:
-Pazar yeri satıcılarından alınan ürünlerin iade süreçleri, satıcının kendi iade politikalarına tabidir, ancak bu politikalar Amazon standart iade politikasından daha katı olamaz. Satıcı bir iade talebine yanıt vermezse veya sorun yaşarsanız "A'dan Z'ye Garanti" kapsamında Amazon'dan destek talep edebilirsiniz.
+Marketplace (Third Party) Seller Refunds:
+Returns of products purchased from marketplace sellers are subject to the seller's own return policies, but these policies cannot be stricter than Amazon's standard return policy. If the seller does not respond to a return request or you experience problems, you can request support from Amazon under the "A to Z Guarantee".

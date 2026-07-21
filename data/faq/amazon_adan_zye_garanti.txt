@@ -1,18 +1,18 @@
-AMAZON A'DAN Z'YE GARANTİ ŞARTLARI
+AMAZON A TO Z WARRANTY TERMS
 
-A'dan Z'ye Garanti Nedir?
-Amazon.com.tr pazar yeri satıcılarından (üçüncü taraf satıcılar) aldığınız ürünlerin zamanında teslimatı ve ürünün durumu Amazon'un "A'dan Z'ye Garanti"si altındadır. Bir sorun yaşadığınızda, sorununuz satıcı tarafından çözülmezse Amazon devreye girerek sizi korur.
+What is A to Z Warranty?
+Timely delivery and condition of the products you purchase from Amazon.com.tr marketplace sellers (third party sellers) are covered by Amazon's "A to Z Guarantee". When you have a problem and your problem is not solved by the seller, Amazon steps in and protects you.
 
-Hangi Durumlarda Geçerlidir?
-1. Ürün Teslim Edilmedi: Kargo takibinde tahmini teslimat tarihi geçmesine rağmen ürün elinize ulaşmadıysa.
-2. Kusurlu/Yanlış Ürün: Gelen ürün, sitedeki açıklamalardan farklı, hasarlı, eksik veya kusurluysa.
-3. İade Sorunları: Ürünü iade politikasında belirtilen süre içinde satıcıya geri gönderdiğiniz halde satıcı para iadenizi yapmadıysa veya reddettiyse.
-4. Ekstra Ücretler: Teslimat sırasında sizden site harici ekstra gümrük veya kargo ücreti talep edildiyse.
+In Which Situations Is It Valid?
+1. Product Not Delivered: If the product has not arrived even though the estimated delivery date has passed in the cargo tracking.
+2. Defective/Wrong Product: If the product received is different from the descriptions on the site, damaged, missing or defective.
+3. Return Problems: If you sent the product back to the seller within the time specified in the return policy, but the seller did not refund your money or refused.
+4. Extra Fees: If you are asked for extra customs or shipping fees outside the site during delivery.
 
-Nasıl Başvurulur?
-1. Öncelikle sorunu çözmek için Siparişlerim sayfasından satıcıyla iletişime geçmelisiniz.
-2. Satıcı ile iletişime geçmenizin üzerinden 48 saat geçmiş ve tatmin edici bir çözüm sunulmamışsa, "A'dan Z'ye Garanti Talebi Oluştur" butonuna tıklayabilirsiniz.
-3. Talebiniz Amazon uzmanları tarafından incelenir. Haklı bulunmanız durumunda, satıcının onayı beklenmeksizin para iadeniz Amazon tarafından yapılır.
+How to Apply?
+1. First, you must contact the seller from the My Orders page to solve the problem.
+2. If 48 hours have passed since you contacted the seller and a satisfactory solution has not been provided, you can click the "Create a Warranty Claim from A to Z" button.
+3. Your request is reviewed by Amazon experts. If you are found right, your money will be refunded by Amazon without waiting for the seller's approval.
 
-Garanti Kapsamı Dışındaki Durumlar:
-Dijital ürünler, hediye kartları veya kullanıcı hatasıyla fiziksel hasar görmüş ürünler genel garanti kapsamında değerlendirilmeyebilir. Siparişin üzerinden 90 günden fazla zaman geçmişse talep oluşturulamaz.
+Situations Outside the Scope of Warranty:
+Digital products, gift cards, or products that are physically damaged due to user error may not be covered by the general warranty. If more than 90 days have passed since the order, a request cannot be created.

@@ -25,7 +25,6 @@ pip install -r requirements.txt
 ```bash
 python ingest.py
 ```
-*(Not: Çok büyük dokümanlarda kesinti yaşanırsa işleme kaldığı yerden devam etmek için `python resume_ingest.py` kullanılabilir.)*
 
 4. Hazır olan asistan arayüzünü ayağa kaldırmak için:
 ```bash

@@ -1,18 +1,18 @@
-AMAZON TÜRKİYE TAKSİT VE ÖDEME SEÇENEKLERİ KILAVUZU
+AMAZON TURKEY INSTALLMENT AND PAYMENT OPTIONS GUIDE
 
-Ödeme Yöntemleri:
-Amazon.com.tr'de Visa, MasterCard, American Express logolu kredi kartları ve banka kartları (debit) geçerlidir. 
-Kapıda ödeme, havale/EFT, BKM Express veya kripto para ile ödeme seçenekleri bulunmamaktadır.
+Payment Methods:
+Credit cards and debit cards with Visa, MasterCard, American Express logos are accepted at Amazon.com.tr. 
+There are no payment options such as cash on delivery, money order/EFT, BKM Express or cryptocurrency.
 
-Taksit İmkanları:
-Türkiye Cumhuriyet Merkez Bankası (TCMB) ve BDDK yasal mevzuatları çerçevesinde kredi kartlarına taksit imkanı sunulmaktadır:
-- Vade Farksız Taksit: Belirli bankaların kredi kartlarına 3 veya 6 aya kadar vade farksız (peşin fiyatına) taksit yapılabilir.
-- Yasal Sınırlamalar: Elektronik eşya, bilgisayar, tablet gibi ürünlerde en fazla 6 taksit; beyaz eşya ve mobilyalarda en fazla 9 taksit uygulanabilir.
-- Cep Telefonu Taksitleri: Fiyatı yasal olarak belirlenen sınırın (örn: 12.000 TL) altında olan cep telefonlarına en fazla 12 taksit; üstünde olanlara ise en fazla 3 taksit yapılabilir.
-- Taksit Yapılamayan Ürünler: Gıda, kozmetik, ofis malzemeleri, hediye kartları, yurt dışından gelen (Amazon Global) ürünlerde taksit uygulaması yapılamaz. Banka kartlarına taksit yapılamaz.
+Installation Opportunities:
+Installment opportunities are offered for credit cards within the framework of the legal regulations of the Central Bank of the Republic of Turkey (CBRT) and BRSA:
+- Interest-Free Installments: Interest-free installments (at cash price) can be made to certain banks' credit cards for up to 3 or 6 months.
+- Legal Limitations: Maximum 6 installments for products such as electronic goods, computers, tablets; A maximum of 9 installments can be applied for white goods and furniture.
+- Mobile Phone Installments: Maximum 12 installments for mobile phones whose price is below the legally determined limit (eg: 12,000 TL); For those above, a maximum of 3 installments can be made.
+- Products that cannot be paid in installments: Installments cannot be made for food, cosmetics, office supplies, gift cards, and products shipped from abroad (Amazon Global). Installations cannot be made using bank cards.
 
-Güvenlik ve 3D Secure:
-Tüm kredi kartı ödemeleri 256-bit SSL sertifikaları ile şifrelenir. Amazon şüpheli bir işlem tespit ettiğinde işlemi durdurur ve onayınız için bankanıza 3D Secure (SMS onayı) talebi gönderir. Her alışverişte 3D Secure ekranı çıkmayabilir, bu tamamen bankanızın risk analizine bağlıdır.
+Security and 3D Secure:
+All credit card payments are encrypted with 256-bit SSL certificates. When Amazon detects a suspicious transaction, it stops the transaction and sends a 3D Secure (SMS confirmation) request to your bank for your approval. The 3D Secure screen may not appear for every purchase, this completely depends on your bank's risk analysis.
 
-Fatura İşlemleri:
-Kurumsal Müşteriler (Vergi mükellefleri), sipariş sırasında kurumsal adreslerini ve vergi numaralarını girerek e-Fatura/kurumsal fatura talep edebilirler. Faturalar ürün teslim edildikten sonra en geç 3 gün içinde sisteme yüklenir ve "Siparişlerim" altından PDF olarak indirilebilir.
+Invoice Transactions:
+Corporate Customers (Taxpayers) can request an e-Invoice/corporate invoice by entering their corporate addresses and tax numbers during the order. Invoices are uploaded to the system within 3 days at the latest after the product is delivered and can be downloaded as PDF under "My Orders".

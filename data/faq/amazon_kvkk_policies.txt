@@ -1,37 +1,37 @@
-AMAZON.COM.TR GİZLİLİK BİLDİRİMİ VE KVKK (KİŞİSEL VERİLERİN KORUNMASI KANUNU) POLİTİKASI
+AMAZON.COM.TR PRIVACY NOTIFICATION AND KVKK (PERSONAL DATA PROTECTION LAW) POLICY
 
-Veri Sorumlusu:
-Kişisel verileriniz, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca veri sorumlusu sıfatıyla Amazon Turkey Perakende Hizmetleri Limited Şirketi (“Amazon Türkiye”) tarafından işlenmektedir.
+Data Controller:
+Your personal data is processed by Amazon Turkey Retail Services Limited Company (“Amazon Turkey”) as the data controller in accordance with the Personal Data Protection Law No. 6698 (“KVKK”).
 
-Hangi Kişisel Verileri Topluyoruz?
-Sizden, Amazon Hizmetlerini sunduğumuz ve sürekli olarak iyileştirdiğimiz için kişisel verilerinizi toplamaktayız:
-- Bize Sağladığınız Bilgiler: Siparişler, kargo adresleri, ödeme bilgileri (kredi kartı), hesap profil bilgileri ve müşteri hizmetleri ile yapılan görüşmeler.
-- Otomatik Olarak Toplanan Bilgiler: Çerezler (cookies) aracılığıyla toplanan IP adresi, tarayıcı türü, alışveriş geçmişi ve ürün arama verileri.
-- Diğer Kaynaklardan Gelen Bilgiler: Kargo şirketlerinden gelen güncellenmiş teslimat adresleri.
+What Personal Data Do We Collect?
+We collect personal data from you as we provide and continually improve the Amazon Services:
+- Information You Provide to Us: Orders, shipping addresses, payment information (credit card), account profile information and conversations with customer service.
+- Automatically Collected Information: IP address, browser type, shopping history and product search data collected through cookies.
+- Information from Other Sources: Updated delivery addresses from cargo companies.
 
-Kişisel Verilerinizi Hangi Amaçlarla İşliyoruz?
-Kişisel verileriniz aşağıdaki amaçlarla işlenir:
-1. Ürün ve hizmetlerin satın alınması ve teslimatı.
-2. Ödemelerin işlenmesi ve dolandırıcılık önleme.
-3. Müşteri iletişimlerinin sağlanması (e-posta, telefon, canlı sohbet).
-4. Size özel ürün ve hizmet önerileri sunulması (kişiselleştirme).
-5. Yasal yükümlülüklerin yerine getirilmesi (fatura kesimi, tüketici hakları mevzuatı).
+For what purposes do we process your personal data?
+Your personal data is processed for the following purposes:
+1. Purchase and delivery of products and services.
+2. Payment processing and fraud prevention.
+3. Providing customer communications (e-mail, phone, live chat).
+4. Providing you with special product and service recommendations (personalization).
+5. Fulfillment of legal obligations (invoking, consumer rights legislation).
 
-Kişisel Verileri Paylaşıyor muyuz?
-Amazon, kişisel verilerinizi satmaz. Verileriniz yalnızca aşağıdaki durumlarda paylaşılır:
-- Kargo ve Teslimat Şirketleri: Siparişlerinizi teslim etmek için adres ve iletişim bilgileriniz kargo şirketleriyle (ör: Kolay Gelsin, MNG Kargo, DHL) paylaşılır.
-- Üçüncü Taraf Satıcılar: Pazaryeri (Marketplace) üzerinden bir satıcıdan ürün aldığınızda, işlemin tamamlanması için sipariş bilgileriniz satıcıyla paylaşılır.
-- Hukuki Yükümlülükler: Mahkeme kararları veya yetkili kamu kurumlarının yasal talepleri doğrultusunda bilgi paylaşımı yapılır.
+Do We Share Personal Data?
+Amazon does not sell your personal data. Your data is only shared in the following cases:
+- Cargo and Delivery Companies: Your address and contact information are shared with cargo companies (e.g. Kolay Gelsin, MNG Cargo, DHL) to deliver your orders.
+- Third Party Sellers: When you buy a product from a seller via Marketplace, your order information is shared with the seller to complete the transaction.
+- Legal Obligations: Information is shared in line with court decisions or legal requests of authorized public institutions.
 
-Veri Güvenliği:
-Amazon, kişisel verilerinizin yetkisiz erişime, kaybolmaya veya değiştirilmeye karşı korunması için gelişmiş SSL (Secure Sockets Layer) şifreleme ve diğer endüstri standardı güvenlik önlemlerini kullanır. Kredi kartı numaralarınız tamamen şifrelenir ve veri tabanlarımızda açık halde tutulmaz.
+Data Security:
+Amazon uses advanced SSL (Secure Sockets Layer) encryption and other industry standard security measures to protect your personal data from unauthorized access, loss or alteration. Your credit card numbers are fully encrypted and are not kept publicly available in our databases.
 
-Haklarınız Nelerdir? (KVKK Madde 11)
-Kişisel verilerinize ilişkin olarak aşağıdaki haklara sahipsiniz:
-- Verilerinizin işlenip işlenmediğini öğrenme,
-- İşlenmişse buna ilişkin bilgi talep etme,
-- İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,
-- Eksik veya yanlış işlenmişse düzeltilmesini isteme,
-- KVKK şartları çerçevesinde silinmesini veya yok edilmesini talep etme.
+What are your rights? (KVKK Article 11)
+You have the following rights regarding your personal data:
+- Learning whether your data is being processed or not,
+- Requesting information about this if it has been processed,
+- Learning the purpose of processing and whether it is used in accordance with its purpose,
+- Request correction if it has been processed incompletely or incorrectly,
+- Requesting its deletion or destruction within the framework of KVKK conditions.
 
-Bu haklarınızı kullanmak için hesabınızın "Gizlilik Ayarları" bölümünü ziyaret edebilir veya Amazon Müşteri Hizmetleri ile doğrudan iletişime geçebilirsiniz.
+To exercise these rights, you can visit the "Privacy Settings" section of your account or contact Amazon Customer Service directly.

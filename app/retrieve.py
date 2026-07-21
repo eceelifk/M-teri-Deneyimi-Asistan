@@ -5,7 +5,7 @@ import sqlite_vec
 from app.database import DB_PATH
 from app.embedding import create_embedding
 
-def retrieve(question, top_k=3, minimum_similarity=0.1, filter_type="all"):
+def retrieve(question, top_k=3, minimum_similarity=0.1, filter_type="all", asin=None):
     """
     Kullanıcının sorusunu vektöre çevirir ve veritabanındaki 
     belge vektörleriyle sqlite-vec (C Modülü) kullanarak 100 kat daha hızlı karşılaştırır.
@@ -22,13 +22,21 @@ def retrieve(question, top_k=3, minimum_similarity=0.1, filter_type="all"):
     
     cursor = conn.cursor()
     
+    like_clause = ""
+    sql_params = [query_blob]
+    
+    if asin:
+        like_clause = f" WHERE d.chunk LIKE ?"
+        sql_params.append(f"%{asin}%")
+    
     # 3. İki tabloyu (metinler ve vektörler) birleştirip C seviyesinde Cosine Distance hesapla
-    sql = """
+    sql = f"""
         SELECT d.source, d.type, d.chunk, vec_distance_cosine(v.embedding, ?) as distance
         FROM documents d
         JOIN vec_documents v ON d.id = v.rowid
+        {like_clause}
     """
-    cursor.execute(sql, (query_blob,))
+    cursor.execute(sql, tuple(sql_params))
     rows = cursor.fetchall()
     
     scored = []
@@ -46,7 +54,12 @@ def retrieve(question, top_k=3, minimum_similarity=0.1, filter_type="all"):
             score -= 0.05 
 
         # Belli bir benzerlik eşiğinin (örn: minimum_similarity) üzerindeki belgeleri alalım
-        if score > minimum_similarity:
+        # Eğer ASIN eşleşmesi varsa, semantik benzerlik düşük olsa bile (vektörler alakasız kalsa da) bu satırı KESİNLİKLE al.
+        if score > minimum_similarity or asin:
+            # ASIN eşleşmesi varsa skorunu yapay olarak yükselt ki her zaman en üstte çıksın
+            if asin:
+                score += 1.0
+                
             scored.append({
                 "score": float(score),
                 "source": source,

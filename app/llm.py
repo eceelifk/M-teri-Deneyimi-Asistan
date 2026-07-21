@@ -5,7 +5,10 @@ from app.config import APP_NAME, MODEL_NAME
 
 print("Initializing Foundry Local...")
 
-config = Configuration(app_name=APP_NAME)
+config = Configuration(
+    app_name=APP_NAME,
+    additional_settings={"ExecutionProvider": "GPU"}
+)
 
 try:
     FoundryLocalManager.initialize(config)
@@ -31,11 +34,9 @@ if client is None:
 print("LLM Initialized (Lazy Loading Ready)")
 
 
-def ask_llm(prompt_text: str) -> str:
-    if not prompt_text or not prompt_text.strip():
+def ask_llm(system_prompt: str, user_prompt: str):
+    if not user_prompt or not user_prompt.strip():
         raise ValueError("LLM prompt boş olamaz.")
-
-    from app.config import SYSTEM_PROMPT
     
     # Lazy loading: Sadece çağrıldığında yükle
     if not model.is_loaded:
@@ -47,32 +48,26 @@ def ask_llm(prompt_text: str) -> str:
     messages = [
         {
             "role": "system",
-            "content": SYSTEM_PROMPT.strip()
+            "content": system_prompt.strip()
         },
         {
             "role": "user",
-            "content": prompt_text.strip()
+            "content": user_prompt.strip()
         }
     ]
 
     try:
         response_stream = client.complete_streaming_chat(messages)
-        content = ""
         for chunk in response_stream:
             if chunk.choices and chunk.choices[0].delta.content:
-                content += chunk.choices[0].delta.content
+                yield chunk.choices[0].delta.content
     except Exception as e:
         if model.is_loaded:
             model.unload()
         raise e
-
-    if not content:
-        raise RuntimeError("Model boş cevap üretti.")
 
     # RAM'i sıradaki embedding araması için boşalt
     if model.is_loaded:
         model.unload()
         import time
         time.sleep(1.5) # VRAM'in temizlenmesini bekle
-
-    return content

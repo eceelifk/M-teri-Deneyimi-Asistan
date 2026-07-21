@@ -4,9 +4,12 @@ from foundry_local_sdk import Configuration, FoundryLocalManager
 from app.config import APP_NAME, EMBEDDING_MODEL_NAME
 
 
-print("Foundry Local Embedding API başlatılıyor...")
+print("Initializing Foundry Local Embedding API...")
 
-config = Configuration(app_name=APP_NAME)
+config = Configuration(
+    app_name=APP_NAME,
+    additional_settings={"ExecutionProvider": "GPU"}
+)
 
 try:
     FoundryLocalManager.initialize(config)
@@ -21,11 +24,11 @@ model = manager.catalog.get_model(EMBEDDING_MODEL_NAME)
 if model is None:
     model = manager.catalog.get_model("qwen3-embedding-0.6b")
     if model is None:
-        raise ValueError("Kritik Hata: Embedding modeli bulunamadı!")
+        raise ValueError("Critical Error: Embedding model not found!")
 
 client = model.get_embedding_client()
 if client is None:
-    raise ValueError("Embedding client alınamadı!")
+    raise ValueError("Failed to get embedding client!")
 
 
 def create_embedding(text: str) -> list[float]:
@@ -36,7 +39,7 @@ def create_embedding(text: str) -> list[float]:
     # Lazy loading: Sadece çağrıldığında yükle
     if not model.is_loaded:
         if not model.is_cached:
-            print("Embedding modeli indiriliyor...")
+            print("Downloading embedding model...")
             model.download()
         model.load()
 
@@ -44,7 +47,7 @@ def create_embedding(text: str) -> list[float]:
         response = client.generate_embedding(text.strip())
         return response.data[0].embedding
     except Exception as e:
-        print(f"Hata: {e}")
+        print(f"Error: {e}")
         return []
 
 

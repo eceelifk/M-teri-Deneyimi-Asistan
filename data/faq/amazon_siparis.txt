@@ -1,17 +1,17 @@
-Amazon.com.tr Sipariş Verme Rehberi
+Amazon.com.tr Ordering Guide
 
-Amazon.com.tr üzerinden sipariş vermek için aşağıdaki temel adımları izleyebilirsiniz:
-1. Giriş Yapın veya Hesap Oluşturun: Amazon.com.tr adresine gidin. Eğer bir hesabınız yoksa "Hesabınız" menüsünden yeni bir hesap oluşturun; varsa giriş yapın.
-2. Ürün Arayın: Arama çubuğuna satın almak istediğiniz ürünün adını yazın.
-3. Sepete Ekle: İstediğiniz ürünü seçtikten sonra, ürün sayfasındaki "Sepete Ekle" butonuna tıklayın.
-4. Siparişi Tamamlayın: Alışverişinizi tamamlamak için sepetinize gidin ve "Siparişi Tamamla" (veya "Ödeme sayfasına geç") butonuna tıklayın.
-5. Adres ve Ödeme Bilgileri: Teslimat adresinizi seçin veya yeni bir adres girin, ardından ödeme yönteminizi (kredi kartı vb.) belirleyin.
-6. Onaylayın: Sipariş özetinizi kontrol ettikten sonra "Siparişi onaylayın" butonuna basarak işlemi tamamlayın.
+You can follow the basic steps below to order via Amazon.com.tr:
+1. Log In or Create an Account: Go to Amazon.com.tr. If you do not have an account, create a new account from the "Your Account" menu; If so, log in.
+2. Search for a Product: Type the name of the product you want to buy in the search bar.
+3. Add to Cart: After selecting the product you want, click the "Add to Cart" button on the product page.
+4. Complete the Order: To complete your purchase, go to your cart and click the "Complete Order" (or "Proceed to checkout") button.
+5. Address and Payment Information: Select your delivery address or enter a new address, then select your payment method (credit card, etc.).
+6. Confirm: After checking your order summary, complete the process by clicking the "Confirm order" button.
 
-Yardım ve Destek:
-Sipariş verme süreci veya siparişlerinizle ilgili yaşadığınız herhangi bir sorun için Amazon'un yardım sayfalarına şu yollarla ulaşabilirsiniz:
-- Online Yardım Merkezi: Amazon.com.tr üzerindeki "Yardım" veya "Müşteri Hizmetleri" bölümlerini ziyaret ederek, yaşadığınız soruna uygun başlığı seçip rehberlik alabilir veya "Bize Ulaşın" üzerinden müşteri temsilcileriyle iletişime geçebilirsiniz.
-- İletişim Formu: amazon.com.tr/iletisim sayfası üzerinden siparişlerinizle ilgili destek talebi oluşturabilirsiniz.
-- Uygulama İçi Destek: Amazon mobil uygulamasının yan menüsünde yer alan "Müşteri Hizmetleri" seçeneğini kullanarak doğrudan canlı destek alabilir veya sorun bildirebilirsiniz.
+Help and Support:
+If you have any problems with the ordering process or your orders, you can access Amazon's help pages via:
+- Online Help Center: You can visit the "Help" or "Customer Services" sections on Amazon.com.tr, select the title appropriate to the problem you are experiencing and get guidance, or contact customer representatives via "Contact Us".
+- Contact Form: You can create a support request regarding your orders via amazon.com.tr/iletisim page.
+- In-App Support: You can directly get live support or report a problem by using the "Customer Services" option in the side menu of the Amazon mobile application.
 
-*Not: Eğer bir satıcıysanız, sipariş yönetimi ve kargo onaylama gibi işlemler için "Seller Central" paneli üzerinden "Sipariş Yönetimi" sayfasına giriş yapmanız gerekmektedir.
+*Note: If you are a seller, you must log in to the "Order Management" page via the "Seller Central" panel for operations such as order management and cargo confirmation.

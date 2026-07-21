@@ -1,0 +1,16 @@
+Resetting Your Password
+If you have forgotten your password, you can reset your password by following the password help process on our website.
+To reset your password, go to .
+1. When prompted, enter your email address or mobile phone number associated with your Amazon account and Continue
+Select et.
+To verify your request, we will send you an email or SMS with a One Time Password (OTP) (your chosen verification code).
+We will send according to the method.
+2. Enter the One Time Password you received and select Continue.
+3. Create a new password.
+The new password will be valid from the moment it is created. The new password will change all passwords associated with the same email address.
+It will be valid for Amazon accounts.
+Password help
+8.07.2026 11:12
+Resetting Your Password - Amazon Customer Service
+https://www.amazon.com.tr/gp/help/customer/display.html?nodeId=GH3NM2YWEFEL2CQ4
+1/1

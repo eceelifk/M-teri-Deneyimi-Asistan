@@ -1,21 +1,21 @@
-Amazon Türkiye'de Satıcı Olmak ve Satış Yapmak
+Becoming a Seller and Selling on Amazon Turkey
 
-Amazon Türkiye'de satıcı olmak ve satış yapmaya başlamak için izleyebileceğiniz temel adımlar ve kaynaklar aşağıdadır:
+Below are the basic steps and resources you can follow to become a seller and start selling on Amazon Turkey:
 
-1. Kayıt ve Başlangıç
-- Satıcı Hesabı Oluşturma: Amazon Türkiye'de satış yapmaya başlamak için öncelikle Amazon Seller Central Türkiye sayfası üzerinden bir satıcı hesabı oluşturmanız gerekmektedir.
-- Yardım ve Rehberler: Başvuru süreci, hesap yönetimi ve satışa hazırlık gibi konularda detaylı bilgi almak için Seller Central içindeki "Yardım" bölümlerini veya "Başlangıç Kılavuzu"nu inceleyebilirsiniz.
+1. Registration and Getting Started
+- Creating a Seller Account: To start selling on Amazon Turkey, you must first create a seller account via the Amazon Seller Central Turkey page.
+- Help and Guides: You can review the "Help" sections or the "Start Guide" in Seller Central to get detailed information on topics such as the application process, account management and sales preparation.
 
-2. Satış Modelleri ve Lojistik
-- Amazon Lojistik (FBA): Ürünlerinizin depolama, paketleme, kargo ve müşteri hizmetleri süreçlerini Amazon'un yönetmesini sağlayan bir hizmettir. Prime üyelerine hızlı teslimat avantajı sunar.
-- Kendiniz Gönderin: Siparişleri ve kargo süreçlerini kendi anlaşmalı olduğunuz kargo firmaları ile yönetmeyi de tercih edebilirsiniz.
-- Amazon Kolay Gönderi: Yurtiçi satıcılar için sunulan, anlaşmalı taşıyıcı firmaların paketleri deponuzdan alıp alıcıya teslim ettiği bir teslimat yardım hizmetidir.
+2. Sales Models and Logistics
+- Amazon Logistics (FBA): It is a service that allows Amazon to manage the storage, packaging, shipping and customer service processes of your products. It offers fast delivery advantage to Prime members.
+- Ship It Yourself: You can also choose to manage orders and shipping processes with your own contracted cargo companies.
+- Amazon Easy Shipment: It is a delivery assistance service offered for domestic sellers, where contracted carrier companies pick up the packages from your warehouse and deliver them to the buyer.
 
-3. Satış Süreci ve Ücretler
-- Satış Komisyonları: Amazon, satılan her ürün için kategoriye göre değişen oranlarda (Genelde %6 ile %15 arası) satış komisyonu alır.
-- Ücretlendirme: Satıcı hesabı türüne göre (örneğin Profesyonel Satıcı hesabı) aylık abonelik ücretleri veya satış başına kesintiler uygulanabilir.
-- Ürün Listeleme: Seller Central üzerinden ürünlerinizi listeleyebilir, envanterinizi yönetebilir ve satış raporlarınızı takip edebilirsiniz.
+3. Sales Process and Fees
+- Sales Commissions: Amazon receives a sales commission for each product sold, at varying rates depending on the category (usually between 6% and 15%).
+- Pricing: Monthly subscription fees or per-sale deductions may apply depending on Seller account type (e.g. Professional Seller account).
+- Product Listing: You can list your products, manage your inventory and track your sales reports via Seller Central.
 
-4. Destek ve İletişim
-- Bize Ulaşın: Kayıt öncesi sorularınız veya hesap süreçleriyle ilgili bilgi almak için Amazon'un Bize Ulaşın formlarını veya destek sayfalarını kullanabilirsiniz.
-- Satıcı Forumları: Diğer satıcılarla etkileşim kurmak ve deneyimlerden faydalanmak için Amazon Satıcı Forumları'nı ziyaret edebilirsiniz.
+4. Support and Communication
+- Contact Us: You can use Amazon's Contact Us forms or support pages for your pre-registration questions or information about account processes.
+- Seller Forums: You can visit Amazon Seller Forums to interact with other sellers and benefit from experiences.

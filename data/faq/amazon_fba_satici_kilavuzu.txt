@@ -1,16 +1,16 @@
-AMAZON LOJİSTİK (FBA) VE SATICI KILAVUZU
+AMAZON LOGISTICS (FBA) AND SELLER GUIDE
 
-Amazon Lojistik (FBA) Nedir?
-Fulfillment by Amazon (FBA), pazaryeri satıcılarının ürünlerini Amazon depolarına gönderdiği, depolama, paketleme, kargolama ve müşteri hizmetleri gibi tüm süreçlerin Amazon tarafından yönetildiği sistemdir.
+What is Fulfillment by Amazon (FBA)?
+Fulfillment by Amazon (FBA) is a system where marketplace sellers send their products to Amazon warehouses and all processes such as storage, packaging, shipping and customer services are managed by Amazon.
 
-FBA Avantajları:
-1. Satıcıların ürünleri anında "Prime" etiketi kazanır ve bedava/hızlı kargo avantajından yararlanır.
-2. Müşteri iadeleri ve kargo sorunları tamamen Amazon Müşteri Hizmetleri tarafından çözülür.
-3. Buy Box (Satın Alma Kutusu) kazanma ihtimalini büyük ölçüde artırır.
+FBA Advantages:
+1. Sellers' products instantly gain the "Prime" label and benefit from free/fast shipping.
+2. Customer returns and shipping issues are completely resolved by Amazon Customer Service.
+3. Buy Box greatly increases the odds of winning.
 
-Satıcıların Yükümlülükleri:
-- Amazon depolarına gönderilecek ürünlerin barkodlanması ve paketlenmesi satıcının sorumluluğundadır.
-- FBA dışı (FBM - satıcının kendi gönderdiği) ürünlerde müşteri mesajlarına en geç 24 saat içinde yanıt verilmesi zorunludur. Aksi takdirde satıcı puanı düşer.
+Obligations of Sellers:
+- It is the seller's responsibility to barcode and package the products to be sent to Amazon warehouses.
+- For non-FBA (FBM - seller's own) products, customer messages must be responded to within 24 hours at the latest. Otherwise, the seller score will decrease.
 
-Komisyon ve Kesintiler:
-Amazon, satılan her ürün kategorisine göre farklı oranlarda yönlendirme ücreti (komisyon) keser. FBA kullanan satıcılardan ayrıca ürünün hacmine ve ağırlığına göre depolama ve kargolama ücreti tahsil edilir. Uzun süre (365 günden fazla) depoda satılmadan bekleyen ürünlerden ekstra "uzun süreli depolama ücreti" alınır.
+Commissions and Deductions:
+Amazon charges referral fees (commissions) at different rates depending on each product category sold. Sellers using FBA are also charged storage and shipping fees depending on the volume and weight of the product. An extra "long-term storage fee" is charged for products that remain unsold in the warehouse for a long time (more than 365 days).

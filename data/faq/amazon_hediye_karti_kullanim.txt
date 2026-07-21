@@ -1,19 +1,19 @@
-AMAZON HEDİYE KARTI (GIFT CARD) KULLANIM KOŞULLARI
+AMAZON GIFT CARD TERMS OF USE
 
-Hediye Kartı Nedir?
-Amazon.com.tr hediye kartları, hesabınıza bakiye olarak yükleyebileceğiniz ve Amazon üzerindeki alışverişlerinizde nakit para yerine kullanabileceğiniz dijital veya fiziksel kodlardır.
+What is a Gift Card?
+Amazon.com.tr gift cards are digital or physical codes that you can load into your account as a balance and use instead of cash for your purchases on Amazon.
 
-Nasıl Yüklenir ve Kullanılır?
-1. Hesabım > Hediye Kartları sekmesine gidin.
-2. "Hediye Kartı Ekle" butonuna tıklayarak kartınızın üzerindeki 14-15 haneli kodu girin.
-3. Bakiye hesabınıza anında yansır.
-4. Ödeme aşamasında sistem, alışveriş tutarını otomatik olarak hediye kartı bakiyenizden düşmeyi teklif edecektir. 
+How to Install and Use?
+1. Go to My Account > Gift Cards tab.
+2. Click the "Add Gift Card" button and enter the 14-15 digit code on your card.
+3. The balance is reflected in your account instantly.
+4. During the payment phase, the system will automatically offer to deduct the purchase amount from your gift card balance. 
 
-Kurallar ve Sınırlamalar:
-- Geçerlilik Süresi: Amazon.com.tr hediye kartlarının son kullanma tarihi, düzenlenme tarihinden itibaren 10 yıldır.
-- Devredilemez: Hesabınıza yüklediğiniz bir hediye kartı bakiyesini başka bir hesaba aktaramaz, nakite çeviremez veya başka bir kredi kartına iade alamazsınız.
-- Kullanılamayan Ürünler: Hediye kartı bakiyesiyle başka bir hediye kartı veya bazı dijital üyelikler satın alınamaz.
-- Bakiye Yetersizliği: Alışveriş tutarınız hediye kartı bakiyenizden yüksekse, kalan tutarı kredi kartı veya banka kartınızla tamamlayabilirsiniz.
+Rules and Limitations:
+- Validity Period: The expiration date of Amazon.com.tr gift cards is 10 years from the date of issue.
+- Non-transferable: You cannot transfer the balance of a gift card you have added to your account to another account, convert it into cash, or receive a refund to another credit card.
+- Unusable Products: Another gift card or some digital memberships cannot be purchased with gift card balance.
+- Insufficient Balance: If your shopping amount is higher than your gift card balance, you can complete the remaining amount with your credit card or debit card.
 
-Para İadesi:
-Hediye kartı bakiyesi ile satın aldığınız bir ürünü iade ettiğinizde, ürünün bedeli tekrar hediye kartı bakiyesi olarak hesabınıza anında iade edilir. Nakit olarak geri ödenmez.
+Refund:
+When you return a product you purchased with a gift card balance, the price of the product is instantly refunded to your account as a gift card balance. It is not refundable in cash.

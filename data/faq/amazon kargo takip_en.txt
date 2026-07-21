@@ -1,0 +1,36 @@
+If you cannot find shipment tracking information, please visit the Help page titled Tracking Information is Missing.
+To track your cargo:
+1. Go to My Orders.
+2. Find the order you want to track.
+3. Select Shipping Tracking next to the order.
+To find the shipping company's contact information, select Freight Company Contact Information.
+If the Amazon Marketplace seller has shared tracking information with Amazon and you have a shipment that offers tracking service.
+If you have selected the method, you will also be able to track the packages sent by Amazon Marketplace sellers.
+You can benefit from it.
+Note: If your package shows as delivered but you haven't received it, Lost Shown as Delivered
+Learn more on the Finding the Package page.
+Note: Some packages cannot be tracked.
+Independent businesses and individual sellers selling on Amazon are called "Marketplace Sellers". Which of your order?
+You can check that it is from the seller on the My Orders page.
+To track shipments from marketplace sellers:
+The seller has sent the cargo tracking number to Amazon,
+Your order must include a trackable shipping option.
+You can use the Contacting a Marketplace Seller section to contact the seller.
+Statuses available on the My Orders page include:
+Estimated delivery: Indicates that it will be delivered on the specified date.
+In Delivery: It shows that it is on its way to be delivered to you during the day.
+Delivered: It means that the shipment has been delivered.
+For solutions to common shipping problems:
+Not shipped yet If you are waiting for the package today and do not see a status update, this is normal.
+Depending on the shipping company, items may be shipped the same day they are delivered.
+Shipping Delayed: Weather and traffic conditions may affect delivery. Delayed shipments usually arrive within 48 hours.
+is delivered. Orders shipped cannot be cancelled.
+I Can't Find My Shipment: If it shows as Delivered but you haven't received it, it shows as Delivered.
+Check out the Finding Lost Boxes page.
+There is a Missing Product: Some products may be in separate shipments. First check it on the My Orders page,
+then check the Find the Item Missing from Your Package page.
+To contact the cargo company, visit the Cargo Company Contact Information page.
+8.07.2026 11:01
+Track Your Shipment - Amazon Customer Service
+https://www.amazon.com.tr/gp/help/customer/display.html?nodeId=GENAFPTNLHV7ZACW
+1/1
