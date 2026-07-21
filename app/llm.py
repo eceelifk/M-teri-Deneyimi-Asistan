@@ -62,12 +62,4 @@ def ask_llm(system_prompt: str, user_prompt: str):
             if chunk.choices and chunk.choices[0].delta.content:
                 yield chunk.choices[0].delta.content
     except Exception as e:
-        if model.is_loaded:
-            model.unload()
         raise e
-
-    # RAM'i sıradaki embedding araması için boşalt
-    if model.is_loaded:
-        model.unload()
-        import time
-        time.sleep(1.5) # VRAM'in temizlenmesini bekle

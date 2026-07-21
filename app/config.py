@@ -32,7 +32,7 @@ Rules:
 
 
 # Retrieval sırasında döndürülecek maksimum belge parçası
-TOP_K = 3
+TOP_K = 5
 
 # Embedding benzerliği için minimum kabul edilen değer
 MINIMUM_SIMILARITY = 0.05

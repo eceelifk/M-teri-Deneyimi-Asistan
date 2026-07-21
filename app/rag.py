@@ -65,31 +65,39 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
         }
 
     context = build_context(docs)
+    
+    # Kapsam sınırını aşmamak için bağlamı kırp (Yaklaşık 300 kelime / 1500 karakter)
+    if len(context) > 1500:
+        context = context[:1500] + "\n... [Bağlam Kırpıldı]"
 
     from app.memory import get_memory_text
     memory_context = get_memory_text()
+    if len(memory_context) > 1000:
+        memory_context = "... [Geçmiş Kırpıldı]\n" + memory_context[-1000:]
 
     # ASIN is already extracted above as detected_asin
 
     if filter_type == "review":
-        system_instruction = f"""Sen bir Amazon Müşteri Deneyimi Danışmanısın.
-GÖREVİN: Kullanıcının sorusunu SADECE verilen İngilizce BELGE BAĞLAMI'na dayanarak **TÜRKÇE** ve **ÇOK KISA** cevaplamaktır.
+        system_instruction = f"""Sen Amazon'un Müşteri Deneyimi Danışmanısın.
+GÖREVİN: Kullanıcının sorusunu SADECE verilen İngilizce BELGE BAĞLAMI'na dayanarak TÜRKÇE yanıtlamak. Doğrudan cevaba başla.
 
 KURALLAR:
-1. Kısa ve net ol. Asla soruyu tekrar etme, doğrudan cevaba geç. Uzun açıklamalar yapma.
-2. SADECE bağlamdaki bilgileri kullan. Bağlamda yoksa uydurma.
-3. Cevabın MUTLAKA TÜRKÇE olmalıdır.
-4. ASIN kodu varsa veya istenirse link ekle: [Ürünü İncele](https://www.amazon.com.tr/dp/ASIN_KODU) ve ![Görsel](https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=ASIN_KODU&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1)
-5. Sorunun cevabı bağlamda YOKSA, uydurma. Sadece şunu yaz: "{NOT_FOUND_TR}" """
-        user_prompt = f"Bağlam:\n{context}\n\nSoru: {question_tr}"
+1. Cevabını madde işareti veya liste kullanmadan, düz bir paragraf (düz metin) halinde yaz.
+2. SADECE bağlamdaki bilgileri kullan.
+3. Kendi kendine düşünmen gerekirse (<think> etiketleri), bunu ÇOK KISA tut (maksimum 1-2 cümle)."""
+        
+        asin_info = f"\n\nSorgudaki Ürün Kodu (ASIN): {detected_asin}" if detected_asin else ""
+        user_prompt = f"Bağlam:\n{context}{asin_info}\n\nMüşteri: {question_tr}"
     else:
-        system_instruction = f"""Sen Amazon Müşteri Danışmanısın.
-Görev: Müşterinin sorusunu SADECE verilen İNGİLİZCE BELGE BAĞLAMI'nı kullanarak **TÜRKÇE** ve **ÇOK KISA** cevapla.
-Kurallar:
-1. Kısa ve öz ol. Doğrudan cevabı ver, soruyu veya gereksiz başlıkları ("Cevap:", "Müşteri Sorusu:" vb.) asla kullanma.
-2. Asla kendi genel bilgini kullanma. Sadece belgedekileri söyle.
-3. Eğer sorunun cevabı belgede geçmiyorsa sadece "{NOT_FOUND_TR}" yaz, başka bir şey ekleme."""
-        user_prompt = f"Bağlam:\n{context}\n\nSoru: {question_tr}"
+        system_instruction = f"""Sen Amazon'un Müşteri Danışmanısın.
+GÖREVİN: Kullanıcının sorusunu SADECE verilen İngilizce BELGE BAĞLAMI'na dayanarak TAMAMEN TÜRKÇE yanıtlamak. Doğrudan cevaba başla.
+
+KURALLAR:
+1. Cevabını madde işareti veya liste kullanmadan, düz bir paragraf (düz metin) halinde yaz.
+2. SADECE bağlamdaki bilgileri kullan. Doğrudan cevaba başla.
+3. Cevabın MUTLAKA %100 TÜRKÇE olmalıdır. İngilizce kelimeleri (örneğin 'undamaged', 'condition') mutlaka Türkçeye çevir (örneğin 'hasarsız', 'durum').
+4. Kendi kendine düşünmen gerekirse (<think> etiketleri), bunu ÇOK KISA tut (maksimum 1-2 cümle)."""
+        user_prompt = f"Bağlam:\n{context}\n\nGeçmiş Sohbet:\n{memory_context}\n\nMüşteri: {question_tr}"
 
     sources = list(dict.fromkeys(doc["source"] for doc in docs))
 
@@ -100,25 +108,49 @@ Kurallar:
             loop_detected = False
             yielded_anything = False
             
+            # Eğer ASIN tespit edildiyse, görsel ve linki Python tarafında biz ekliyoruz
+            # Bu, küçük modelin URL üretirken sonsuz döngüye girmesini (Operation was cancelled) önler.
+            if filter_type == "review" and detected_asin:
+                header = f"[👉 Ürünü Amazon'da İncele](https://www.amazon.com.tr/dp/{detected_asin})\n\n---\n\n"
+                visible_answer += header
+                yield header
+                yielded_anything = True
+
+            buffer = ""
+            in_think = False
+
             for chunk in ask_llm(system_instruction, user_prompt):
-                # Think tag filtering logic
-                if "<think>" in chunk or in_think:
-                    if "<think>" in chunk:
+                buffer += chunk
+                
+                if not in_think:
+                    if "<think>" in buffer:
                         in_think = True
-                    if "</think>" in chunk:
-                        in_think = False
-                        # If it just exited think, don't yield the tag itself
-                        chunk = chunk.split("</think>")[-1]
-                        if not chunk:
-                            continue
-                    else:
-                        continue # Skip yielding while inside think block
+                        pre_think = buffer.split("<think>")[0]
+                        if pre_think:
+                            yield pre_think.replace("<", "&lt;").replace(">", "&gt;")
+                            visible_answer += pre_think
+                        buffer = buffer[buffer.find("<think>") + 7:]
                         
-                # Ensure we don't accidentally yield part of <think> if it was split
-                if "<think" in chunk and not in_think:
-                    continue # Wait for the rest of the tag
-                    
-                visible_answer += chunk
+                        # Kullanıcı "Yapay zeka düşünüyor..." yazısını da istemediği için tamamen sessizce gizliyoruz.
+                    else:
+                        # Eğer '<' karakteri geldiyse ve henüz '<think>' tamamlanmadıysa biraz beklet
+                        if "<" in buffer and len(buffer) < 15:
+                            continue
+                        
+                        # '<think>' değilse güvenle ekrana bas
+                        yield buffer.replace("<", "&lt;").replace(">", "&gt;")
+                        visible_answer += buffer
+                        buffer = ""
+                else:
+                    # Düşünme aşamasındayız, metni ekrana basmıyoruz (gizliyoruz)
+                    if "</think>" in buffer:
+                        in_think = False
+                        post_think = buffer.split("</think>")[1]
+                        buffer = post_think
+                    else:
+                        # Buffer çok şişmesin diye son 15 karakteri tutup gerisini çöpe atıyoruz
+                        if len(buffer) > 20:
+                            buffer = buffer[-15:]
                 
                 # Loop breaker logic (improved to ignore numbers)
                 if len(visible_answer) > 100:
@@ -138,8 +170,6 @@ Kurallar:
                     break
                     
                 yielded_anything = True
-                yield chunk
-                
             if not yielded_anything:
                 yield NOT_FOUND_TR
 

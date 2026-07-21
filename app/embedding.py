@@ -8,7 +8,7 @@ print("Initializing Foundry Local Embedding API...")
 
 config = Configuration(
     app_name=APP_NAME,
-    additional_settings={"ExecutionProvider": "GPU"}
+    additional_settings={"ExecutionProvider": "CPU"}
 )
 
 try:
@@ -74,6 +74,5 @@ def cosine_similarity(v1: list[float], v2: list[float]) -> float:
 
 
 def unload_embedding():
-    """Unloads the embedding model from memory."""
-    if model.is_loaded:
-        model.unload()
+    """Unloads the embedding model from memory (DISABLED to keep in RAM)."""
+    pass
