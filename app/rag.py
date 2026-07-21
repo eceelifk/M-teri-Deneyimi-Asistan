@@ -51,6 +51,10 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
     asin_match = re.search(r'\b([B0-9][A-Z0-9]{9})\b', search_context + question_tr)
     detected_asin = asin_match.group(1) if asin_match else ""
 
+    # SSS (FAQ) veritabanında ASIN bilgisi olmadığı için, FAQ aramasında ASIN filtresini temizle
+    if filter_type != "review":
+        detected_asin = ""
+
     try:
         docs = retrieve(question=english_query, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY, filter_type=filter_type, asin=detected_asin)
         unload_embedding()
@@ -104,20 +108,10 @@ KURALLAR:
     try:
         def realtime_stream():
             visible_answer = ""
+            buffer = ""
             in_think = False
             loop_detected = False
             yielded_anything = False
-            
-            # Eğer ASIN tespit edildiyse, görsel ve linki Python tarafında biz ekliyoruz
-            # Bu, küçük modelin URL üretirken sonsuz döngüye girmesini (Operation was cancelled) önler.
-            if filter_type == "review" and detected_asin:
-                header = f"[👉 Ürünü Amazon'da İncele](https://www.amazon.com.tr/dp/{detected_asin})\n\n---\n\n"
-                visible_answer += header
-                yield header
-                yielded_anything = True
-
-            buffer = ""
-            in_think = False
 
             for chunk in ask_llm(system_instruction, user_prompt):
                 buffer += chunk
@@ -130,32 +124,24 @@ KURALLAR:
                             yield pre_think.replace("<", "&lt;").replace(">", "&gt;")
                             visible_answer += pre_think
                         buffer = buffer[buffer.find("<think>") + 7:]
-                        
-                        # Kullanıcı "Yapay zeka düşünüyor..." yazısını da istemediği için tamamen sessizce gizliyoruz.
                     else:
-                        # Eğer '<' karakteri geldiyse ve henüz '<think>' tamamlanmadıysa biraz beklet
                         if "<" in buffer and len(buffer) < 15:
                             continue
                         
-                        # '<think>' değilse güvenle ekrana bas
                         yield buffer.replace("<", "&lt;").replace(">", "&gt;")
                         visible_answer += buffer
                         buffer = ""
                 else:
-                    # Düşünme aşamasındayız, metni ekrana basmıyoruz (gizliyoruz)
                     if "</think>" in buffer:
                         in_think = False
                         post_think = buffer.split("</think>")[1]
                         buffer = post_think
                     else:
-                        # Buffer çok şişmesin diye son 15 karakteri tutup gerisini çöpe atıyoruz
                         if len(buffer) > 20:
                             buffer = buffer[-15:]
                 
-                # Loop breaker logic (improved to ignore numbers)
                 if len(visible_answer) > 100:
                     import re
-                    # Remove non-alphabet characters and convert to lower
                     clean_text = re.sub(r'[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]', '', visible_answer.lower())
                     words = clean_text.split()
                     for i in range(4, 20):
@@ -170,6 +156,13 @@ KURALLAR:
                     break
                     
                 yielded_anything = True
+            
+            if filter_type == "review" and detected_asin:
+                footer = f"\n\n---\n[👉 Ürünü Amazon'da İncele](https://www.amazon.com.tr/dp/{detected_asin})"
+                visible_answer += footer
+                yield footer
+                yielded_anything = True
+
             if not yielded_anything:
                 yield NOT_FOUND_TR
 
