@@ -1,6 +1,6 @@
 from app.llm import ask_llm
 from app.retrieve import retrieve
-from app.translate import tr_to_en
+from app.translate import tr_to_en, en_to_tr
 from app.memory import add_to_memory
 from app.config import TOP_K, MINIMUM_SIMILARITY
 
@@ -47,20 +47,29 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
     # Translate Turkish query to English for DB search
     english_query = tr_to_en(search_context + question_tr)
     
-    import re
-    asin_match = re.search(r'\b([B0-9][A-Z0-9]{9})\b', search_context + question_tr)
-    detected_asin = asin_match.group(1) if asin_match else ""
-
-    # SSS (FAQ) veritabanında ASIN bilgisi olmadığı için, FAQ aramasında ASIN filtresini temizle
-    if filter_type != "review":
-        detected_asin = ""
-
+    # SADECE VERİTABANINDA SEMANTİK OLARAK ARAYACAĞIZ (ASIN FİLTRESİ YOK)
     try:
-        docs = retrieve(question=english_query, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY, filter_type=filter_type, asin=detected_asin)
+        docs = retrieve(question=english_query, top_k=TOP_K, minimum_similarity=MINIMUM_SIMILARITY, filter_type=filter_type)
         unload_embedding()
     except Exception as error:
         print("Retrieval error:", error)
         docs = []
+
+    if not docs:
+        return {
+            "answer_stream": get_simulated_stream(NOT_FOUND_TR),
+            "sources": []
+        }
+        
+    detected_asin = ""
+    if filter_type == "review":
+        import re
+        for doc in docs:
+            # Belgenin içinden ASIN'i çekiyoruz
+            match = re.search(r'\b([B0-9][A-Z0-9]{9})\b', doc["chunk"])
+            if match:
+                detected_asin = match.group(1)
+                break
 
     if not docs:
         return {
@@ -82,34 +91,41 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
     # ASIN is already extracted above as detected_asin
 
     if filter_type == "review":
-        system_instruction = f"""Sen Amazon'un Müşteri Deneyimi Danışmanısın.
-GÖREVİN: Kullanıcının sorusunu SADECE verilen İngilizce BELGE BAĞLAMI'na dayanarak TÜRKÇE yanıtlamak. Doğrudan cevaba başla.
+        system_instruction = f"""You are Amazon's expert Customer Advisor.
+YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on the provided English PRODUCT REVIEWS.
 
-KURALLAR:
-1. Cevabını madde işareti veya liste kullanmadan, düz bir paragraf (düz metin) halinde yaz.
-2. SADECE bağlamdaki bilgileri kullan.
-3. Kendi kendine düşünmen gerekirse (<think> etiketleri), bunu ÇOK KISA tut (maksimum 1-2 cümle)."""
+RULES:
+1. Answer ENTIRELY in English. Do not use Turkish.
+2. DO NOT copy-paste raw reviews or lists of reviews. DO NOT mention "Helpfulness" scores.
+3. Your main goal is to summarize the overall consensus (e.g., "Generally, people really liked this book..."). You can briefly quote 1 or 2 reviews if helpful, but mostly synthesize the information.
+4. ALWAYS explicitly mention the "Product Name" from the context. If the user asks for a recommendation, strongly recommend the specific product you found (e.g., "I highly recommend the [Product Name] because...").
+5. DO NOT sound like a robot. Synthesize the information naturally (e.g. instead of "reviews mention", say "customers love").
+6. If the provided reviews are completely irrelevant to the user's question, DO NOT make up an answer. Simply say: "I couldn't find any relevant reviews for this product in our database."
+7. STRUCTURE YOUR ANSWER CAREFULLY: If you use Markdown headings (like ## Positive Feedback or ### Negative), YOU MUST put them on a completely new line. Always separate paragraphs and headings with a blank line.
+8. Start directly with the core answer. Keep a helpful, enthusiastic tone.
+9. If you need to think (<think> tags), keep it VERY SHORT."""
         
         asin_info = f"\n\nSorgudaki Ürün Kodu (ASIN): {detected_asin}" if detected_asin else ""
         user_prompt = f"Bağlam:\n{context}{asin_info}\n\nMüşteri: {question_tr}"
     else:
-        system_instruction = f"""Sen Amazon'un Müşteri Danışmanısın.
-GÖREVİN: Kullanıcının sorusunu SADECE verilen İngilizce BELGE BAĞLAMI'na dayanarak TAMAMEN TÜRKÇE yanıtlamak. Doğrudan cevaba başla.
+        system_instruction = f"""You are Amazon's Customer Advisor.
+YOUR TASK: Answer the user's question based ONLY on the provided English DOCUMENT CONTEXT.
 
-KURALLAR:
-1. Cevabını madde işareti veya liste kullanmadan, düz bir paragraf (düz metin) halinde yaz.
-2. SADECE bağlamdaki bilgileri kullan. Doğrudan cevaba başla.
-3. Cevabın MUTLAKA %100 TÜRKÇE olmalıdır. İngilizce kelimeleri (örneğin 'undamaged', 'condition') mutlaka Türkçeye çevir (örneğin 'hasarsız', 'durum').
-4. Kendi kendine düşünmen gerekirse (<think> etiketleri), bunu ÇOK KISA tut (maksimum 1-2 cümle)."""
+RULES:
+1. Answer ENTIRELY in English. Do not use Turkish.
+2. Structure your answer clearly. If the answer involves steps, use numbered lists or bullet points.
+3. Start your answer directly with the information. DO NOT use introductory phrases like "The answer is" or "Based on the context".
+4. If you need to think (<think> tags), keep it VERY SHORT."""
         user_prompt = f"Bağlam:\n{context}\n\nGeçmiş Sohbet:\n{memory_context}\n\nMüşteri: {question_tr}"
 
     sources = list(dict.fromkeys(doc["source"] for doc in docs))
 
     try:
         def realtime_stream():
-            visible_answer = ""
             buffer = ""
             in_think = False
+            sentence_buffer = ""
+            visible_answer = ""
             loop_detected = False
             yielded_anything = False
 
@@ -118,28 +134,68 @@ KURALLAR:
                 
                 if not in_think:
                     if "<think>" in buffer:
-                        in_think = True
-                        pre_think = buffer.split("<think>")[0]
+                        parts = buffer.split("<think>")
+                        pre_think = parts[0]
                         if pre_think:
-                            yield pre_think.replace("<", "&lt;").replace(">", "&gt;")
-                            visible_answer += pre_think
-                        buffer = buffer[buffer.find("<think>") + 7:]
+                            sentence_buffer += pre_think
+                            
+                            # Check for sentence boundaries
+                            import re
+                            sentences = re.split(r'([.!?\n]+)', sentence_buffer)
+                            
+                            if len(sentences) > 1:
+                                remainder = sentences.pop()
+                                complete_text = ""
+                                for i in range(0, len(sentences)-1, 2):
+                                    text_part = sentences[i]
+                                    delim_part = sentences[i+1]
+                                    complete_text += text_part + delim_part
+                                
+                                if complete_text.strip():
+                                    translated = en_to_tr(complete_text.strip())
+                                    if translated:
+                                        # Check if the last delimiter had a newline
+                                        suffix = "\n\n" if "\n" in sentences[-1] else " "
+                                        visible_answer += translated + suffix
+                                        yield translated + suffix
+                                
+                                sentence_buffer = remainder
+                                
+                        in_think = True
+                        buffer = parts[1] if len(parts) > 1 else ""
                     else:
-                        if "<" in buffer and len(buffer) < 15:
-                            continue
-                        
-                        yield buffer.replace("<", "&lt;").replace(">", "&gt;")
-                        visible_answer += buffer
+                        sentence_buffer += chunk
                         buffer = ""
-                else:
+                        
+                        import re
+                        sentences = re.split(r'([.!?\n]+)', sentence_buffer)
+                        
+                        if len(sentences) > 1:
+                            remainder = sentences.pop()
+                            complete_text = ""
+                            for i in range(0, len(sentences)-1, 2):
+                                text_part = sentences[i]
+                                delim_part = sentences[i+1]
+                                complete_text += text_part + delim_part
+                            
+                            if complete_text.strip():
+                                translated = en_to_tr(complete_text.strip())
+                                if translated:
+                                    suffix = "\n\n" if "\n" in sentences[-1] else " "
+                                    visible_answer += translated + suffix
+                                    yield translated + suffix
+                            
+                            sentence_buffer = remainder
+
+                if in_think:
                     if "</think>" in buffer:
+                        parts = buffer.split("</think>")
                         in_think = False
-                        post_think = buffer.split("</think>")[1]
-                        buffer = post_think
-                    else:
-                        if len(buffer) > 20:
-                            buffer = buffer[-15:]
-                
+                        buffer = parts[1] if len(parts) > 1 else ""
+                        sentence_buffer += buffer
+                        buffer = ""
+                        
+                # Loop detection using visible_answer
                 if len(visible_answer) > 100:
                     import re
                     clean_text = re.sub(r'[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]', '', visible_answer.lower())
@@ -156,7 +212,14 @@ KURALLAR:
                     break
                     
                 yielded_anything = True
-            
+
+            # Flush the remaining sentence_buffer
+            if sentence_buffer.strip():
+                translated = en_to_tr(sentence_buffer.strip())
+                if translated:
+                    visible_answer += translated + " "
+                    yield translated + " "
+
             if filter_type == "review" and detected_asin:
                 footer = f"\n\n---\n[👉 Ürünü Amazon'da İncele](https://www.amazon.com.tr/dp/{detected_asin})"
                 visible_answer += footer

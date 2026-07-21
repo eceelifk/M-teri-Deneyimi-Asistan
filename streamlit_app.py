@@ -8,7 +8,8 @@ from app.rag import ask
 st.set_page_config(
     page_title="Amazon Asistan",
     page_icon="📦",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
 # Turn off Chrome translate warning by setting lang to en
@@ -31,7 +32,6 @@ html, body, [class*="css"] {
 
 /* Hide default streamlit header */
 #MainMenu {visibility: hidden;}
-header {visibility: hidden;}
 footer {visibility: hidden;}
 
 /* Sidebar - Elegant Dark Slate Gradient */
@@ -211,10 +211,10 @@ if len(st.session_state.messages) == 0:
         ]
     else:
         examples = [
-            "B000AO3L84 (Canon 430EX Flaş) ürününü alanlar en çok hangi özelliğini beğenmiş? Özetler misin?",
-            "B000AO3L84 kodlu üründe kullanıcıların en çok şikayet ettiği kronik sorunlar neler?",
-            "B000AO3L84 ürününün kutu içeriği ve temel teknik özellikleri nelerdir? Görsel de ekler misin?",
-            "B000AO3L84 ASIN kodlu ürün satın alınmaya değer mi? Yorumları analiz edip bir karar ver."
+            "Canon 430EX Flaş ürününü alanlar en çok hangi özelliğini beğenmiş? Özetler misin?",
+            "Bana iyi ve fiyat performans açısından mantıklı bir kamera önerebilir misin? (Örn: Sony Cyber-shot)",
+            "Philips SoundShooter hoparlörün ses kalitesi iyi mi, alınır mı?",
+            "Radio Flyer Little Toy Wagon çocuklar için uygun mu, yorumlar nasıl?"
         ]
         
     cols = st.columns(2)
@@ -259,7 +259,8 @@ if prompt:
                 stream = result.get("answer_stream")
                 
                 # st.write_stream generator'ı tüketip tam stringi geri döndürür
-                full_answer = st.write_stream(stream)
+                with st.spinner("⏳ Yükleniyor..."):
+                    full_answer = st.write_stream(stream)
                 
                 # Hafızaya ekleme işlemini akış bittikten sonra yap
                 from app.memory import add_to_memory
