@@ -23,6 +23,84 @@ def load_txt(path):
         )
     ]
 
+def load_amazon_reviews_txt(path):
+    docs = []
+    with open(path, encoding="utf-8") as f:
+        content = f.read()
+    
+    # "Product Code (ASIN): " kelimesine göre böl
+    products_raw = content.split("Product Code (ASIN): ")
+    
+    for p_raw in products_raw:
+        if not p_raw.strip():
+            continue
+            
+        lines = p_raw.strip().split("\n")
+        asin = lines[0].strip()
+        
+        product_name = ""
+        product_image = ""
+        reviews_start_idx = -1
+        
+        for i, line in enumerate(lines[1:], start=1):
+            if line.startswith("Product Name: "):
+                product_name = line.replace("Product Name: ", "").strip()
+            elif line.startswith("Product Image: "):
+                product_image = line.replace("Product Image: ", "").strip()
+            elif line.startswith("Customer Reviews:"):
+                reviews_start_idx = i + 1
+                break
+                
+        if reviews_start_idx == -1:
+            continue
+            
+        reviews_text = "\n".join(lines[reviews_start_idx:])
+        # Yorumları "- " (tire ve boşluk) ile ayır
+        reviews_list = [r.strip() for r in reviews_text.split("\n- ") if r.strip()]
+        
+        # Eğer yorumların başında da "- " varsa onu da temizle
+        reviews_list = [r[2:] if r.startswith("- ") else r for r in reviews_list]
+        
+        header = f"Product Name: {product_name}\nASIN: {asin}\n"
+        if product_image:
+            header += f"Product Image: {product_image}\n"
+        header += "\nReviews:\n"
+        
+        current_chunk = header
+        
+        for r in reviews_list:
+            # 650 karakteri geçiyorsa yeni bir Document oluştur
+            if len(current_chunk) + len(r) > 650 and len(current_chunk) > len(header):
+                docs.append(
+                    Document(
+                        page_content=current_chunk,
+                        metadata={
+                            "source": os.path.basename(path),
+                            "type": "review",
+                            "asin": asin,
+                            "product": product_name
+                        }
+                    )
+                )
+                current_chunk = header + f"- {r}\n"
+            else:
+                current_chunk += f"- {r}\n"
+                
+        if len(current_chunk) > len(header):
+            docs.append(
+                Document(
+                    page_content=current_chunk,
+                    metadata={
+                        "source": os.path.basename(path),
+                        "type": "review",
+                        "asin": asin,
+                        "product": product_name
+                    }
+                )
+            )
+            
+    return docs
+
 
 def load_pdf(path):
     docs = []
@@ -85,6 +163,9 @@ Review:
 
 def load_jsonl(path):
     docs = []
+    
+    # Ürünleri ASIN'e göre grupla
+    products = {}
 
     with open(path, encoding="utf-8") as f:
         for line in f:
@@ -99,29 +180,49 @@ def load_jsonl(path):
 
             review = row.get("sentence", "").strip()
             title = row.get("product_title", "").strip()
-            
-            if not review or not title:
-                continue
-
-            text = f"Product: {title}\n"
-            
             asin = row.get("asin")
-            if asin:
-                text += f"ASIN: {asin}\n"
+            
+            if not review or not title or not asin:
+                continue
                 
-            image_url = row.get("main_image_url")
-            if image_url:
-                text += f"Image URL: {image_url}\n"
-                
-            helpful = row.get("helpful")
-            if helpful:
-                text += f"Helpful Score: {helpful}\n"
-                
-            text += f"\nReview:\n{review}"
+            if asin not in products:
+                products[asin] = {
+                    "title": title,
+                    "image_url": row.get("main_image_url"),
+                    "helpful": row.get("helpful"),
+                    "reviews": []
+                }
+            products[asin]["reviews"].append(review)
 
+    for asin, data in products.items():
+        header = f"Product: {data['title']}\nASIN: {asin}\n"
+        if data['image_url']:
+            header += f"Image URL: {data['image_url']}\n"
+        header += "\nReviews:\n"
+        
+        current_chunk = header
+        
+        for r in data["reviews"]:
+            # Eğer mevcut chunk limiti aşacaksa, yeni bir Document oluştur (650 karakter sınırı)
+            if len(current_chunk) + len(r) > 650 and len(current_chunk) > len(header):
+                docs.append(
+                    Document(
+                        page_content=current_chunk,
+                        metadata={
+                            "source": os.path.basename(path),
+                            "type": "review"
+                        }
+                    )
+                )
+                current_chunk = header + f"- {r}\n"
+            else:
+                current_chunk += f"- {r}\n"
+                
+        # Kalan kısmı da ekle
+        if len(current_chunk) > len(header):
             docs.append(
                 Document(
-                    page_content=text,
+                    page_content=current_chunk,
                     metadata={
                         "source": os.path.basename(path),
                         "type": "review"
@@ -150,7 +251,9 @@ def load_documents():
                 doc_type = "review"
 
             new_docs = []
-            if lower_file.endswith(".pdf"):
+            if lower_file == "amazon_grouped_reviews.txt":
+                new_docs = load_amazon_reviews_txt(path)
+            elif lower_file.endswith(".pdf"):
                 new_docs = load_pdf(path)
             elif lower_file.endswith(".txt"):
                 new_docs = load_txt(path)

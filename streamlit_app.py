@@ -139,6 +139,45 @@ footer {visibility: hidden;}
     box-shadow: 0 10px 30px rgba(255, 153, 0, 0.15) !important;
 }
 
+/* Modern Markdown Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.95em;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    color: #1e293b;
+}
+
+table thead tr {
+    background-color: #0ea5e9;
+    color: #ffffff;
+    text-align: left;
+    font-weight: 700;
+}
+
+table th, table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #f8fafc;
+}
+
+table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -258,9 +297,31 @@ if prompt:
             try:
                 stream = result.get("answer_stream")
                 
-                # st.write_stream generator'ı tüketip tam stringi geri döndürür
+                # İlk veriyi alırken spinner göster (Modelin yüklenme süresi)
                 with st.spinner("⏳ Yükleniyor..."):
-                    full_answer = st.write_stream(stream)
+                    try:
+                        first_chunk = next(stream)
+                    except StopIteration:
+                        first_chunk = ""
+                
+                # Spinner kaybolduktan sonra kalan akışı yazdır
+                def generate_stream():
+                    if first_chunk:
+                        yield first_chunk
+                    yield from stream
+                
+                full_answer = st.write_stream(generate_stream())
+                
+                # Dinamik Alt Bilgi Ekleme
+                asins = result.get("asins", [])
+                if asins:
+                    st.markdown("---")
+                    full_answer += f"\n\n---\n"
+                    cols = st.columns(len(asins))
+                    for i, asin in enumerate(asins):
+                        with cols[i]:
+                            st.link_button(f"👉 Ürünü Amazon'da İncele", f"https://www.amazon.com.tr/dp/{asin}", use_container_width=True)
+                        full_answer += f"[👉 Ürünü Amazon'da İncele](https://www.amazon.com.tr/dp/{asin})\n"
                 
                 # Hafızaya ekleme işlemini akış bittikten sonra yap
                 from app.memory import add_to_memory

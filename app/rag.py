@@ -61,15 +61,7 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
             "sources": []
         }
         
-    detected_asin = ""
-    if filter_type == "review":
-        import re
-        for doc in docs:
-            # Belgenin içinden ASIN'i çekiyoruz
-            match = re.search(r'\b([B0-9][A-Z0-9]{9})\b', doc["chunk"])
-            if match:
-                detected_asin = match.group(1)
-                break
+    # (ASIN detection will be done after building the full context)
 
     if not docs:
         return {
@@ -79,16 +71,23 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
 
     context = build_context(docs)
     
-    # Kapsam sınırını aşmamak için bağlamı kırp (Yaklaşık 300 kelime / 1500 karakter)
-    if len(context) > 1500:
-        context = context[:1500] + "\n... [Bağlam Kırpıldı]"
+    # Kapsam sınırını aşmamak için bağlamı kırp (Yaklaşık 12000 karakter)
+    if len(context) > 12000:
+        context = context[:12000] + "\n... [Bağlam Kırpıldı]"
 
     from app.memory import get_memory_text
     memory_context = get_memory_text()
+    
+    full_text_for_asin = context + "\n\n" + memory_context
+    detected_asins = []
+    if filter_type == "review":
+        import re
+        matches = re.findall(r'\b([B0-9][A-Z0-9]{9})\b', full_text_for_asin)
+        detected_asins = list(dict.fromkeys(matches))
+    context = context + "\n\n" + memory_context
+    
     if len(memory_context) > 1000:
         memory_context = "... [Geçmiş Kırpıldı]\n" + memory_context[-1000:]
-
-    # ASIN is already extracted above as detected_asin
 
     if filter_type == "review":
         system_instruction = f"""You are Amazon's expert Customer Advisor.
@@ -97,16 +96,59 @@ YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on t
 RULES:
 1. Answer ENTIRELY in English. Do not use Turkish.
 2. DO NOT copy-paste raw reviews or lists of reviews. DO NOT mention "Helpfulness" scores.
-3. Your main goal is to summarize the overall consensus (e.g., "Generally, people really liked this book..."). You can briefly quote 1 or 2 reviews if helpful, but mostly synthesize the information.
-4. ALWAYS explicitly mention the "Product Name" from the context. If the user asks for a recommendation, strongly recommend the specific product you found (e.g., "I highly recommend the [Product Name] because...").
-5. DO NOT sound like a robot. Synthesize the information naturally (e.g. instead of "reviews mention", say "customers love").
-6. If the provided reviews are completely irrelevant to the user's question, DO NOT make up an answer. Simply say: "I couldn't find any relevant reviews for this product in our database."
-7. STRUCTURE YOUR ANSWER CAREFULLY: If you use Markdown headings (like ## Positive Feedback or ### Negative), YOU MUST put them on a completely new line. Always separate paragraphs and headings with a blank line.
-8. Start directly with the core answer. Keep a helpful, enthusiastic tone.
-9. If you need to think (<think> tags), keep it VERY SHORT."""
+3. Your main goal is to summarize the overall consensus based on the reviews.
+4. RECOMMENDATIONS: If the user asks for a recommendation (e.g., "suggest a camera"):
+   - Recommend ONE OR MORE products found in the context.
+   - For EACH recommended product, you MUST use this exact format:
+     
+     ### [Product Name]
+     - **Why I Recommend It**: [Explain why it's recommended based on the reviews]
+     - **Key Features**: [List key features mentioned by customers]
+5. COMPARISONS: If the user asks to compare products, DO NOT output a table. Instead, format it as a clean list. 
+   - For EACH product, use this format EXACTLY, with double blank lines between every section:
+   
+     ### [Product Name]
+     
+     - **Estimated Rating**: [e.g. ⭐⭐⭐⭐½ (4.5/5)]
+     
+     - **Pros**: [List pros]
+     
+     - **Cons**: [List cons]
+     
+     - **Final Recommendation**: [Why you recommend it]
+6. DO NOT sound like a robot. Synthesize the information naturally.
+7. If the provided reviews are completely irrelevant to the user's question, DO NOT make up an answer. Simply say: "Unfortunately, I couldn't find a product in our database that matches these criteria."
+8. STRUCTURE YOUR ANSWER CAREFULLY: If you use Markdown headings, YOU MUST put them on a completely new line. Always separate paragraphs and headings with a blank line.
+9. Start directly with the core answer. Keep a helpful, enthusiastic tone.
+10. If you need to think (<think> tags), keep it VERY SHORT."""
         
-        asin_info = f"\n\nSorgudaki Ürün Kodu (ASIN): {detected_asin}" if detected_asin else ""
-        user_prompt = f"Bağlam:\n{context}{asin_info}\n\nMüşteri: {question_tr}"
+        user_prompt = f"""REVIEWS CONTEXT:
+{context}
+
+CUSTOMER QUESTION: {english_query}
+
+IMPORTANT REMINDER: Answer the customer based ONLY on the reviews above. First, evaluate the overall sentiment for the product.
+
+If the product has MOSTLY POSITIVE reviews, RECOMMEND IT. Your answer MUST look like this example:
+### Sony Cyber-shot Camera
+- **Estimated Rating**: ⭐⭐⭐⭐½ (4.5/5)
+- **Why I Recommend It**: Customers love the image quality and battery life.
+- **Key Features**: 20MP sensor, compact size.
+
+If the product has MOSTLY NEGATIVE reviews, DO NOT RECOMMEND IT. Your answer MUST look like this example:
+### Bad Brand Speaker
+- **Estimated Rating**: ⭐½☆☆☆ (1.5/5)
+- **Why I DO NOT Recommend It**: Most customers complained that it breaks after one day and has terrible sound.
+- **Major Complaints**: Poor sound, breaks easily.
+
+If the customer asks to COMPARE two or more products, YOU MUST use a Markdown table. Your answer MUST look like this example:
+| Feature | Sony Camera | Bad Brand Camera |
+|---|---|---|
+| **Rating** | ⭐⭐⭐⭐½ | ⭐½☆☆☆ |
+| **Pros** | Great image | Cheaper |
+| **Cons** | Expensive | Breaks easily |
+
+YOUR HELPFUL ANSWER (in English):"""
     else:
         system_instruction = f"""You are Amazon's Customer Advisor.
 YOUR TASK: Answer the user's question based ONLY on the provided English DOCUMENT CONTEXT.
@@ -116,7 +158,7 @@ RULES:
 2. Structure your answer clearly. If the answer involves steps, use numbered lists or bullet points.
 3. Start your answer directly with the information. DO NOT use introductory phrases like "The answer is" or "Based on the context".
 4. If you need to think (<think> tags), keep it VERY SHORT."""
-        user_prompt = f"Bağlam:\n{context}\n\nGeçmiş Sohbet:\n{memory_context}\n\nMüşteri: {question_tr}"
+        user_prompt = f"Context:\n{context}\n\nChat History:\n{memory_context}\n\nCustomer: {english_query}"
 
     sources = list(dict.fromkeys(doc["source"] for doc in docs))
 
@@ -124,8 +166,8 @@ RULES:
         def realtime_stream():
             buffer = ""
             in_think = False
-            sentence_buffer = ""
             visible_answer = ""
+            line_buffer = ""
             loop_detected = False
             yielded_anything = False
 
@@ -137,63 +179,43 @@ RULES:
                         parts = buffer.split("<think>")
                         pre_think = parts[0]
                         if pre_think:
-                            sentence_buffer += pre_think
-                            
-                            # Check for sentence boundaries
-                            import re
-                            sentences = re.split(r'([.!?\n]+)', sentence_buffer)
-                            
-                            if len(sentences) > 1:
-                                remainder = sentences.pop()
-                                complete_text = ""
-                                for i in range(0, len(sentences)-1, 2):
-                                    text_part = sentences[i]
-                                    delim_part = sentences[i+1]
-                                    complete_text += text_part + delim_part
-                                
-                                if complete_text.strip():
-                                    translated = en_to_tr(complete_text.strip())
-                                    if translated:
-                                        # Check if the last delimiter had a newline
-                                        suffix = "\n\n" if "\n" in sentences[-1] else " "
-                                        visible_answer += translated + suffix
-                                        yield translated + suffix
-                                
-                                sentence_buffer = remainder
-                                
+                            line_buffer += pre_think
+                            if line_buffer.strip():
+                                tr_text = en_to_tr(line_buffer)
+                                yield tr_text
+                                visible_answer += tr_text
+                                yielded_anything = True
+                            else:
+                                yield line_buffer
+                                visible_answer += line_buffer
+                            line_buffer = ""
                         in_think = True
                         buffer = parts[1] if len(parts) > 1 else ""
                     else:
-                        sentence_buffer += chunk
+                        line_buffer += chunk
                         buffer = ""
                         
-                        import re
-                        sentences = re.split(r'([.!?\n]+)', sentence_buffer)
-                        
-                        if len(sentences) > 1:
-                            remainder = sentences.pop()
-                            complete_text = ""
-                            for i in range(0, len(sentences)-1, 2):
-                                text_part = sentences[i]
-                                delim_part = sentences[i+1]
-                                complete_text += text_part + delim_part
+                        while "\n" in line_buffer:
+                            parts = line_buffer.split("\n", 1)
+                            line = parts[0]
+                            line_buffer = parts[1]
                             
-                            if complete_text.strip():
-                                translated = en_to_tr(complete_text.strip())
-                                if translated:
-                                    suffix = "\n\n" if "\n" in sentences[-1] else " "
-                                    visible_answer += translated + suffix
-                                    yield translated + suffix
-                            
-                            sentence_buffer = remainder
-
-                if in_think:
+                            if line.strip():
+                                tr_text = en_to_tr(line)
+                                yield tr_text + "\n"
+                                visible_answer += tr_text + "\n"
+                                yielded_anything = True
+                            else:
+                                yield "\n"
+                                visible_answer += "\n"
+                else:
                     if "</think>" in buffer:
                         parts = buffer.split("</think>")
                         in_think = False
                         buffer = parts[1] if len(parts) > 1 else ""
-                        sentence_buffer += buffer
-                        buffer = ""
+                        if buffer:
+                            line_buffer += buffer
+                            buffer = ""
                         
                 # Loop detection using visible_answer
                 if len(visible_answer) > 100:
@@ -210,28 +232,21 @@ RULES:
                     yield "\n\n... (Aynı cümlelerin tekrar ettiği algılandığı için otomatik olarak kesildi. Başka bir sorunuz varsa lütfen sorun.)"
                     yielded_anything = True
                     break
-                    
-                yielded_anything = True
 
-            # Flush the remaining sentence_buffer
-            if sentence_buffer.strip():
-                translated = en_to_tr(sentence_buffer.strip())
-                if translated:
-                    visible_answer += translated + " "
-                    yield translated + " "
-
-            if filter_type == "review" and detected_asin:
-                footer = f"\n\n---\n[👉 Ürünü Amazon'da İncele](https://www.amazon.com.tr/dp/{detected_asin})"
-                visible_answer += footer
-                yield footer
+            if line_buffer.strip():
+                tr_text = en_to_tr(line_buffer)
+                yield tr_text
                 yielded_anything = True
+            elif line_buffer:
+                yield line_buffer
 
             if not yielded_anything:
                 yield NOT_FOUND_TR
 
         return {
             "answer_stream": realtime_stream(),
-            "sources": sources
+            "sources": sources,
+            "asins": detected_asins if filter_type == "review" else []
         }
 
     except Exception as error:

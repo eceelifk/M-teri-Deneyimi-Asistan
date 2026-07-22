@@ -8,7 +8,7 @@ print("Initializing Foundry Local Embedding API...")
 
 config = Configuration(
     app_name=APP_NAME,
-    additional_settings={"ExecutionProvider": "CPU"}
+    additional_settings={"ExecutionProvider": "GPU"}
 )
 
 try:
