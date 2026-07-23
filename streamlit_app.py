@@ -314,6 +314,7 @@ if prompt:
                 
                 # Dinamik Alt Bilgi Ekleme
                 asins = result.get("asins", [])
+                asins = list(dict.fromkeys(asins)) # Remove duplicates
                 if asins:
                     st.markdown("---")
                     full_answer += f"\n\n---\n"
